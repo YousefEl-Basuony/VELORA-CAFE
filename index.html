@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+    <div class="page">
+
+        <header class="header-container">
+            <p class="left">VELORA</p>
+            <div class="head" id="navMenu">
+                <ul class="list">
+                    <li><a href="#">HOME</a></li>
+                    <li class="desktop-menu-item dropdown">
+                        <a href="#">MENU</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Hot Coffee</a></li>
+                            <li><a href="#">Cold Coffee</a></li>
+                            <li><a href="#">Bakery</a></li>
+                            <li><a href="#">Dessert</a></li>
+                        </ul>
+                    </li> 
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">ORDER</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <a href="#" class="signup-btn">SIGN UP</a>
+                <a href="#" class="login-btn">LOG IN</a>
+                <div class="dropdown mobile-dropdown">
+                    <a href="#" class="mobile-menu-btn">MENU</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">Hot Coffee</a></li>
+                        <li><a href="#">Cold Coffee</a></li>
+                        <li><a href="#">Bakery</a></li>
+                        <li><a href="#">Dessert</a></li>
+                    </ul>
+                </div>
+                <div class="menu-icon" id="menuBtn">&#9776;</div>
+            </div>
+        </header>
+        
+        <div class="main">
+            <p class="wel">WELCOME</p>
+            <h1>We serve the richest coffee in the city!</h1>
+            <p class="discript">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ratione amet corporis illo sunt neque aliquam sint a delectus nisi possimus.</p>
+            <a href="#" class="btn">ORDER NOW</a>
+        </div>
+        
+    </div>
+    
+    <script>
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        menuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileDropdownMenu = document.querySelector('.mobile-dropdown .dropdown-menu');
+
+        if (mobileMenuBtn && mobileDropdownMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileDropdownMenu.classList.toggle('show');
+            });
+        }
+    </script>
+</body>
+</html>
