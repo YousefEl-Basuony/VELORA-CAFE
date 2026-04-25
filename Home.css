@@ -22,6 +22,8 @@ body {
     overflow-x: hidden;
 }
 
+
+
 .page {
     width: 100%;
     min-height: 100vh;
@@ -577,6 +579,8 @@ body {
         display: inline-block;
     }
 
+
+    
     .mobile-dropdown .dropdown-menu {
         left: auto;
         right: -40px;
