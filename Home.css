@@ -26,7 +26,7 @@ body {
     width: 100%;
     min-height: 100vh;
     /* Adding a richer gradient overlay to make text pop and give a premium feel */
-    background-image: linear-gradient(135deg, var(--overlay-darker) 0%, var(--overlay-dark) 100%), url("5.jpg");
+    background-image: linear-gradient(135deg, var(--overlay-darker) 0%, var(--overlay-dark) 100%), url("images/5.jpg");
     background-repeat: no-repeat;
     background-size: 100% 100%, 100% 100%;
     background-position: center;
@@ -210,8 +210,13 @@ body {
 }
 
 .dropdown-menu li {
-    padding: 10px 15px;
+    padding: 12px 15px;
     text-align: center;
+    border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+}
+
+.dropdown-menu li:last-child {
+    border-bottom: none;
 }
 
 .dropdown-menu li a {
@@ -256,7 +261,7 @@ body {
     flex-direction: column;
     justify-content: center;
     max-width: 700px;
-    margin-left: 12%;
+    margin-left: 10%;
     padding: 40px 0;
 }
 
@@ -284,10 +289,10 @@ body {
 
 .main h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 78px;
+    font-size: 60px;
     line-height: 1.15;
     font-weight: 700;
-    margin-bottom: 35px;
+    margin-top: 35px;
     color: #ffffff;
     text-shadow: 2px 4px 15px rgba(0,0,0,0.5);
     opacity: 0;
@@ -448,6 +453,7 @@ body {
         transform: none;
         top: 100%;
         margin-top: 25px;
+        z-index: 1000;
         animation: mobileDropdownFadeIn 0.3s ease forwards;
     }
 
