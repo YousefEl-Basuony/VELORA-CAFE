@@ -426,7 +426,7 @@ function addToCart(productName, price, imgElement){
     }
     
     // رسالة تأكيد
-    showNotification(`✓ تمت إضافة ${productName} بنجاح!`);
+    showNotification(`✓    بنجاح ${productName}  تم إضافة`);
 }
 
 // دالة إظهار رسالة التنبيه
@@ -497,7 +497,7 @@ function checkOrderValidity(){
     // الحصول على أول 4 cards فقط
     const firstFourCards = document.querySelectorAll('.card');
     let allSelected = true;
-    let message = '✓ تم اختيار جميع المنتجات!';
+    let message = '✓ تم الإضافة';
     
     // التحقق من أول 4 cards فقط
     for(let i = 0; i < Math.min(4, firstFourCards.length); i++){
