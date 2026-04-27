@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="Order.css">
+<title>Order</title>
+
+
+
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+    <h2>• Order</h2>
+
+    <div class="icons">
+
+        <div class="icon">
+            <img src="1.svg">
+            <span>Hot Coffee</span>
+        </div>
+
+        <div class="icon">
+            <img src="2.svg">
+            <span>Cold Coffee</span>
+        </div>
+
+        <div class="icon">
+            <img src="3.svg">
+            <span>Bakery</span>
+        </div>
+
+        <div class="icon">
+            <img src="4.svg">
+            <span>Dessert</span>
+        </div>
+
+    </div>
+</nav>
+
+<!-- SUMMARY SECTION -->
+<section class="summary-section">
+    <div class="summary-box">
+        <div class="summary-item">
+            <span class="summary-label">Total Items:</span>
+            <span class="summary-value" id="totalItems">0</span>
+        </div>
+        <div class="summary-item">
+            <span class="summary-label">Total Price:</span>
+            <span class="summary-value" id="totalPrice">ج.م 0</span>
+        </div>
+    </div>
+</section>
+
+<!-- ORDER -->
+<section class="order-container">
+
+    <div class="order-grid">
+
+        <!-- CARD 1 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="card1.jpg">
+
+                <div class="heart-icon" onclick="toggleHeart(this)">♡</div>
+
+                <div class="badge badge-orange">POPULAR</div>
+            </div>
+
+            <div class="card-content">
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-num">4.9</span>
+                </div>
+
+                <h3 class="card-title">Latte</h3>
+
+                <p class="card-desc">
+                    Rich espresso with steamed milk and light foam
+                </p>
+
+                <div class="card-bottom">
+
+                    <span class="price" data-price="100">ج.م 100</span>
+
+                    <div class="qty">
+                        <button onclick="changeQty(this,-1)">-</button>
+                        <span>1</span>
+                        <button onclick="changeQty(this,1)">+</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="card2.jpg">
+
+                <div class="heart-icon" onclick="toggleHeart(this)">♡</div>
+
+                <div class="badge badge-brown">CHEF'S PICK</div>
+            </div>
+
+            <div class="card-content">
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-num">4.8</span>
+                </div>
+
+                <h3 class="card-title">Cappuccino</h3>
+
+                <p class="card-desc">
+                    Bold espresso topped with velvety milk foam
+                </p>
+
+                <div class="card-bottom">
+
+                    <span class="price" data-price="70">ج.م 70</span>
+
+                    <div class="qty">
+                        <button onclick="changeQty(this,-1)">-</button>
+                        <span>1</span>
+                        <button onclick="changeQty(this,1)">+</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="card3.jpg">
+
+                <div class="heart-icon" onclick="toggleHeart(this)">♡</div>
+            </div>
+
+            <div class="card-content">
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-num">4.7</span>
+                </div>
+
+                <h3 class="card-title">Espresso</h3>
+
+                <p class="card-desc">
+                    Pure strong coffee shot with rich crema on top
+                </p>
+
+                <div class="card-bottom">
+
+                    <span class="price" data-price="130">ج.م 130</span>
+
+                    <div class="qty">
+                        <button onclick="changeQty(this,-1)">-</button>
+                        <span>1</span>
+                        <button onclick="changeQty(this,1)">+</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- CARD 4 -->
+        <div class="card">
+            <div class="card-img-wrapper">
+                <img src="card4.jpg">
+
+                <div class="heart-icon" onclick="toggleHeart(this)">♡</div>
+            </div>
+
+            <div class="card-content">
+
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-num">4.9</span>
+                </div>
+
+                <h3 class="card-title">Turkish Coffee</h3>
+
+                <p class="card-desc">
+                    Traditional finely ground coffee with cardamom
+                </p>
+
+                <div class="card-bottom">
+
+                    <span class="price" data-price="50">ج.م 50</span>
+
+                    <div class="qty">
+                        <button onclick="changeQty(this,-1)">-</button>
+                        <span>1</span>
+                        <button onclick="changeQty(this,1)">+</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SUGGESTIONS SECTION -->
+<section class="suggestions-section">
+    <h2>Recommended For You</h2>
+    
+    <div class="suggestions-wrapper">
+        <div class="suggestions-grid" id="suggestionsGrid">
+            
+            <!-- SUGGESTION 1 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?auto=format&fit=crop&w=500&h=380&q=80" alt="Cappuccino">
+                    <span class="suggestion-badge">HOT</span>
+                </div>
+                <h3>Cappuccino</h3>
+                <p class="suggestion-desc">Bold espresso topped with velvety milk foam</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 70</span>
+                    <button class="add-btn" onclick="addToCart('Iced Mocha', 70, this)">+</button>
+                </div>
+            </div>
+
+            <!-- SUGGESTION 2 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&h=380&q=80" alt="Espresso">
+                    <span class="suggestion-badge">HOT</span>
+                </div>
+                <h3>Espresso</h3>
+                <p class="suggestion-desc">Pure strong coffee shot with rich crema on top</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 40</span>
+                    <button class="add-btn" onclick="addToCart('Vanilla Latte', 40, this)">+</button>
+                </div>
+            </div>
+
+            <!-- SUGGESTION 3 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=500&h=380&q=80" alt="Iced Latte">
+                    <span class="suggestion-badge">COLD</span>
+                </div>
+                <h3>Iced Latte</h3>
+                <p class="suggestion-desc">Chilled espresso with cold milk over ice cubes</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 120</span>
+                    <button class="add-btn" onclick="addToCart('Caramel Macchiato', 120, this)">+</button>
+                </div>
+            </div>
+
+            <!-- SUGGESTION 4 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=500&h=380&q=80" alt="Iced Mocha">
+                    <span class="suggestion-badge">COLD</span>
+                </div>
+                <h3>Iced Mocha</h3>
+                <p class="suggestion-desc">Chocolate espresso blend with ice and whipped cream</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 110</span>
+                    <button class="add-btn" onclick="addToCart('Cold Brew', 110, this)">+</button>
+                </div>
+            </div>
+
+            <!-- SUGGESTION 5 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=500&h=380&q=80" alt="Danish Pastry">
+                    <span class="suggestion-badge">Bakery</span>
+                </div>
+                <h3>Danish Pastry</h3>
+                <p class="suggestion-desc">Flaky pastry filled with fruit and custard</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 240</span>
+                    <button class="add-btn" onclick="addToCart('Flat White', 240, this)">+</button>
+                </div>
+            </div>
+
+            <!-- SUGGESTION 6 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1558961363-fa8fdf82db35?auto=format&fit=crop&w=500&h=380&q=80" alt="Affogato">
+                    <span class="suggestion-badge">Bakery</span>
+                </div>
+                <h3>Chocolate Muffin</h3>
+                <p class="suggestion-desc">Rich moist muffin loaded with chocolate chips</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 250</span>
+                    <button class="add-btn" onclick="addToCart('Affogato', 250, this)">+</button>
+                </div>
+            </div>
+
+            <!-- SUGGESTION 7 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1567327613485-fbc7bf196198?auto=format&fit=crop&w=500&h=380&q=80" alt="Cheesecake">
+                    <span class="suggestion-badge">Dessert</span>
+                </div>
+                <h3>Cheesecake</h3>
+                <p class="suggestion-desc">Creamy New York style with buttery graham crust</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 200</span>
+                    <button class="add-btn" onclick="addToCart('Cortado', 200, this)">+</button>
+                </div>
+            </div>
+
+            <!-- SUGGESTION 8 -->
+            <div class="suggestion-card">
+                <div class="suggestion-img">
+                    <img src="https://images.unsplash.com/photo-1571877227200-a0d98ea607e9?auto=format&fit=crop&w=500&h=380&q=80" alt="Tiramisu">
+                    <span class="suggestion-badge">Dessert</span>
+                </div>
+                <h3>Tiramisu</h3>
+                <p class="suggestion-desc">Classic Italian layers of coffee-soaked ladyfingers</p>
+                <div class="suggestion-footer">
+                    <span class="suggestion-price">ج.م 190</span>
+                    <button class="add-btn" onclick="addToCart('Lungo', 190, this)">+</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<script>
+
+function changeQty(btn,value){
+
+    let span = btn.parentElement.querySelector("span");
+
+    let count = parseInt(span.innerText);
+
+    count += value;
+
+    if(count < 0){
+        count = 0;
+    }
+
+    span.innerText = count;
+    
+    // تحديث الحسابات عند تغيير الكمية
+    updateTotals();
+    
+    // التحقق من الطلب
+    checkOrderValidity();
+}
+
+function toggleHeart(el){
+
+    el.classList.toggle("active");
+
+    if(el.classList.contains("active")){
+        el.innerHTML = "♥";
+    }else{
+        el.innerHTML = "♡";
+    }
+}
+
+// دالة إضافة منتج من الاقتراحات
+function addToCart(productName, price, imgElement){
+    // البحث عن كارت موجود بنفس الاسم
+    let found = false;
+    
+    document.querySelectorAll('.card').forEach(card => {
+        const cardTitle = card.querySelector('.card-title').innerText;
+        if(cardTitle === productName){
+            // إذا وجدنا الكارت، نزيد الكمية
+            const qtySpan = card.querySelector('.qty span');
+            let currentQty = parseInt(qtySpan.innerText);
+            qtySpan.innerText = currentQty + 1;
+            found = true;
+            updateTotals();
+        }
+    });
+    
+    // إذا لم نجد الكارت، نضيفه جديد
+    if(!found){
+        // الحصول على صورة من العنصر الأب (suggestion card)
+        const suggestionCard = imgElement.closest('.suggestion-card');
+        const suggestionImage = suggestionCard.querySelector('img').src;
+        
+        const newCard = document.createElement('div');
+        newCard.className = 'card';
+        newCard.innerHTML = `
+            <div class="card-img-wrapper">
+                <img src="${suggestionImage}" alt="${productName}">
+                <div class="heart-icon" onclick="toggleHeart(this)">♡</div>
+                <div class="badge badge-added">ADDED</div>
+            </div>
+
+            <div class="card-content">
+                <div class="rating">
+                    <span class="stars">★★★★★</span>
+                    <span class="rating-num">4.8</span>
+                </div>
+
+                <h3 class="card-title">${productName}</h3>
+
+                <p class="card-desc">
+                    Premium coffee from our recommendations
+                </p>
+
+                <div class="card-bottom">
+                    <span class="price" data-price="${price}">ج.م ${price}</span>
+
+                    <div class="qty">
+                        <button onclick="changeQty(this,-1)">-</button>
+                        <span>1</span>
+                        <button onclick="changeQty(this,1)">+</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.querySelector('.order-grid').appendChild(newCard);
+        updateTotals();
+    }
+    
+    // رسالة تأكيد
+    showNotification(`✓ تمت إضافة ${productName} بنجاح!`);
+}
+
+// دالة إظهار رسالة التنبيه
+function showNotification(message){
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.innerText = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 2000);
+}
+
+// دالة إظهار رسالة الخطأ
+function showErrorNotification(message){
+    const notification = document.createElement('div');
+    notification.className = 'notification error-notification';
+    notification.innerText = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 2500);
+}
+
+// دالة إظهار رسالة النجاح
+function showSuccessNotification(message){
+    const notification = document.createElement('div');
+    notification.className = 'notification success-notification';
+    notification.innerText = message;
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.remove();
+    }, 2000);
+}
+
+// دالة حساب الإجمالي
+function updateTotals(){
+    let totalItems = 0;
+    let totalPrice = 0;
+    
+    // حلقة على جميع الكروت
+    document.querySelectorAll('.card').forEach(card => {
+        // الحصول على السعر من data-price
+        const priceText = card.querySelector('.price').getAttribute('data-price');
+        const price = parseInt(priceText);
+        
+        // الحصول على الكمية
+        const quantity = parseInt(card.querySelector('.qty span').innerText);
+        
+        // إضافة للإجمالي
+        totalItems += quantity;
+        totalPrice += price * quantity;
+    });
+    
+    // تحديث العناصر في الصفحة
+    document.getElementById('totalItems').innerText = totalItems;
+    document.getElementById('totalPrice').innerText = 'ج.م ' + totalPrice;
+    
+    // التحقق من أن المستخدم اختار على الأقل منتج واحد
+    checkOrderValidity();
+}
+
+// دالة التحقق من صحة الطلب
+function checkOrderValidity(){
+    // الحصول على أول 4 cards فقط
+    const firstFourCards = document.querySelectorAll('.card');
+    let allSelected = true;
+    let message = '✓ تم اختيار جميع المنتجات!';
+    
+    // التحقق من أول 4 cards فقط
+    for(let i = 0; i < Math.min(4, firstFourCards.length); i++){
+        const quantity = parseInt(firstFourCards[i].querySelector('.qty span').innerText);
+        if(quantity === 0){
+            allSelected = false;
+            message = `⚠️ يجب اختيار ${firstFourCards[i].querySelector('.card-title').innerText} (منتج واحد على الأقل)`;
+            break;
+        }
+    }
+    
+    // إذا اختار من كل المنتجات الأربعة
+    if(allSelected && firstFourCards.length >= 4){
+        showSuccessNotification(message);
+    }
+}
+
+// تحديث الحسابات عند تحميل الصفحة
+document.addEventListener('DOMContentLoaded', function(){
+    updateTotals();
+});
+
+</script>
+
+</body>
+</html>
