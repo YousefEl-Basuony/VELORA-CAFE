@@ -10,95 +10,14 @@
       color: #333;
       line-height: 1.6;
     }
-/* 
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 20px 60px;
-      background: #2b1d14;
-      color: #fff;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+
+    html {
+      scroll-behavior: smooth;
     }
 
-    nav ul {
-      display: flex;
-      gap: 25px;
-      list-style: none;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    nav a.active {
-      color: #c8a97e;
-      border-bottom: 2px solid #c8a97e;
-      padding-bottom: 3px;
-    }
-
-    nav a:hover {
-      color: #c8a97e;
-    }
-
-    .logo {
-      font-size: 26px;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      color: #fff;
-    }
-
-    .coffee-icon {
-      position: relative;
-      display: inline-block;
-    }
-
-    .logo i {
-      color: #d6a86a;
-      font-size: 22px;
-    }
-
-    .steam {
-      position: absolute;
-      top: -10px;
-      left: 6px;
-      width: 4px;
-      height: 12px;
-      background: #fff;
-      border-radius: 50px;
-      opacity: 0;
-      animation: steamUp 2s infinite ease-in-out;
-    }
-
-    .steam1 {
-      left: 4px;
-      animation-delay: 0s;
-    }
-
-    .steam2 {
-      left: 10px;
-      animation-delay: 0.8s;
-    }
-
-    @keyframes steamUp {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      30% {
-        opacity: 0.5;
-      }
-      100% {
-        transform: translateY(-20px) scale(1.5);
-        opacity: 0;
-      }
-    } */
-
-    
+    /* ========================================
+       HERO SECTION (legacy — hidden on Home)
+       ======================================== */
     .hero {
       height: 70vh;
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
@@ -127,7 +46,9 @@
       opacity: 0.9;
     }
 
-   
+    /* ========================================
+       OUR STORY SECTION
+       ======================================== */
     .story {
       display: flex;
       gap: 40px;
@@ -142,6 +63,7 @@
       border-radius: 20px;
       height: 400px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      flex-shrink: 0;
     }
 
     .slider-track {
@@ -183,15 +105,31 @@
       font-size: 36px;
       margin-bottom: 20px;
       color: #2b1d14;
+      position: relative;
+      padding-bottom: 12px;
+    }
+
+    .story-text h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #c8a97e, #d4af37);
+      border-radius: 2px;
     }
 
     .story-text p {
       font-size: 16px;
       color: #666;
       line-height: 1.8;
+      margin-bottom: 12px;
     }
 
-    /* Features Section */
+    /* ========================================
+       FEATURES SECTION
+       ======================================== */
     .features {
       display: flex;
       justify-content: space-around;
@@ -204,6 +142,14 @@
     .feature {
       flex: 1;
       padding: 30px;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 16px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .feature:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
     }
 
     .feature h3 {
@@ -217,7 +163,9 @@
       font-size: 14px;
     }
 
-   
+    /* ========================================
+       TEAM SECTION
+       ======================================== */
     .team {
       padding: 80px 60px;
       text-align: center;
@@ -228,6 +176,21 @@
       font-size: 36px;
       margin-bottom: 50px;
       color: #2b1d14;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 12px;
+    }
+
+    .team h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50px;
+      height: 3px;
+      background: linear-gradient(90deg, #c8a97e, #d4af37);
+      border-radius: 2px;
     }
 
     .team-cards {
@@ -270,7 +233,9 @@
       font-size: 14px;
     }
 
-
+    /* ========================================
+       STATS SECTION
+       ======================================== */
     .stats {
       display: flex;
       justify-content: space-around;
@@ -279,6 +244,11 @@
       color: #fff;
       text-align: center;
       gap: 30px;
+    }
+
+    .stats > div {
+      flex: 1;
+      padding: 20px;
     }
 
     .stats h2 {
@@ -292,7 +262,9 @@
       opacity: 0.9;
     }
 
-
+    /* ========================================
+       CTA SECTION
+       ======================================== */
     .cta {
       padding: 80px 60px;
       text-align: center;
@@ -315,10 +287,9 @@
       color: #666;
     }
 
-  
-
-   
-
+    /* ========================================
+       FOOTER
+       ======================================== */
     .main-footer {
       background: #2b1d14;
       color: #fff;
@@ -334,6 +305,11 @@
       margin: 0 auto;
     }
 
+    .footer-col {
+      min-width: 140px;
+      flex: 1;
+    }
+
     .footer-col h3,
     .footer-col h4 {
       margin-bottom: 15px;
@@ -345,10 +321,12 @@
       color: #ddd;
       cursor: pointer;
       transition: 0.3s;
+      font-size: 14px;
     }
 
     .footer-col p:hover {
       color: #fff;
+      transform: translateX(3px);
     }
 
     .social-icons {
@@ -367,16 +345,19 @@
       background: #fff;
       color: #2b1d14;
       text-decoration: none;
-      transition: 0.3s;
+      transition: all 0.3s ease;
     }
 
     .social-icons a:hover {
       background: #c7a17a;
       color: #fff;
       transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(199, 161, 122, 0.3);
     }
 
- 
+    /* =============================================
+       RESPONSIVE - Tablet (max-width: 768px)
+       ============================================= */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -398,9 +379,11 @@
         font-size: 32px;
       }
 
+      /* Story Section — Stack vertically */
       .story {
         flex-direction: column;
-        padding: 40px 20px;
+        padding: 50px 20px;
+        gap: 30px;
       }
 
       .story-slider,
@@ -410,73 +393,253 @@
       
       .story-slider {
         height: 250px;
+        border-radius: 16px;
       }
       
       .story-text h2 {
         font-size: 28px;
+        text-align: center;
       }
 
+      .story-text h2::after {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .story-text p {
+        text-align: center;
+        font-size: 15px;
+      }
+
+      /* Features Section — Stack vertically */
       .features {
         flex-direction: column;
         padding: 40px 20px;
+        gap: 16px;
       }
 
+      .feature {
+        padding: 24px;
+      }
+
+      .feature h3 {
+        font-size: 20px;
+      }
+
+      /* Team Section */
       .team {
-        padding: 40px 20px;
+        padding: 50px 20px;
+      }
+
+      .team h2 {
+        font-size: 28px;
+        margin-bottom: 30px;
       }
 
       .team-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+        width: 100%;
       }
 
       .card {
-        width: 90%;
-        max-width: 320px;
+        width: 100%;
+        max-width: none;
       }
 
+      .card img {
+        height: 130px;
+      }
+
+      .card h4 {
+        font-size: 16px;
+      }
+
+      /* Stats Section */
       .stats {
         flex-direction: column;
         padding: 40px 20px;
-        gap: 20px;
+        gap: 10px;
+      }
+
+      .stats > div {
+        padding: 15px;
       }
       
       .stats h2 {
-        font-size: 32px;
+        font-size: 36px;
       }
 
+      .stats p {
+        font-size: 14px;
+      }
+
+      /* CTA Section */
       .cta {
+        padding: 50px 20px;
+      }
+
+      .cta h2 {
+        font-size: 28px;
+      }
+
+      .cta p {
+        font-size: 14px;
+      }
+
+      /* Footer Section */
+      .main-footer {
         padding: 40px 20px;
       }
 
       .footer-container {
-        flex-direction: column;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+      }
+
+      .footer-col:first-child {
+        grid-column: 1 / -1;
         text-align: center;
-        align-items: center;
+      }
+
+      .footer-col:first-child .social-icons {
+        justify-content: center;
       }
     }
 
+    /* =============================================
+       RESPONSIVE - Small Mobile (max-width: 480px)
+       ============================================= */
     @media (max-width: 480px) {
       .story {
-        padding: 30px 15px;
+        padding: 35px 16px;
+        gap: 24px;
       }
-      .features {
-        padding: 30px 15px;
+
+      .story-slider {
+        height: 200px;
       }
-      .team {
-        padding: 30px 15px;
-      }
-      .cta {
-        padding: 30px 15px;
-      }
-      .main-footer {
-        padding: 40px 15px;
-      }
-      .team h2, .cta h2, .story-text h2 {
+
+      .story-text h2 {
         font-size: 24px;
       }
-      .story-text p, .cta p, .feature p, .stats p {
+
+      .story-text p {
         font-size: 14px;
+      }
+
+      .features {
+        padding: 30px 16px;
+        gap: 12px;
+      }
+
+      .feature {
+        padding: 20px 16px;
+      }
+
+      .feature h3 {
+        font-size: 18px;
+      }
+
+      .feature p {
+        font-size: 13px;
+      }
+
+      .team {
+        padding: 35px 16px;
+      }
+
+      .team h2 {
+        font-size: 24px;
+        margin-bottom: 24px;
+      }
+
+      .card {
+        padding: 14px;
+      }
+
+      .card img {
+        height: 110px;
+      }
+
+      .card h4 {
+        font-size: 15px;
+      }
+
+      .card p {
+        font-size: 12px;
+      }
+
+      .stats {
+        padding: 30px 16px;
+        gap: 5px;
+      }
+
+      .stats h2 {
+        font-size: 30px;
+      }
+
+      .stats p {
+        font-size: 13px;
+      }
+
+      .cta {
+        padding: 35px 16px;
+      }
+
+      .cta h2 {
+        font-size: 24px;
+      }
+
+      .cta p {
+        font-size: 13px;
+      }
+
+      .main-footer {
+        padding: 35px 16px;
+      }
+
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        text-align: center;
+      }
+
+      .footer-col:first-child {
+        grid-column: auto;
+      }
+
+      .social-icons {
+        justify-content: center;
+      }
+    }
+
+    /* =============================================
+       RESPONSIVE - Very Small (max-width: 360px)
+       ============================================= */
+    @media (max-width: 360px) {
+      .story-slider {
+        height: 180px;
+      }
+
+      .team-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        max-width: 280px;
+        margin: 0 auto;
+      }
+
+      .stats h2 {
+        font-size: 26px;
+      }
+
+      .cta h2,
+      .team h2,
+      .story-text h2 {
+        font-size: 22px;
       }
     }

@@ -17,6 +17,32 @@
 
 <body>
 
+      <header class="header-container">
+            <a href="../Home.html" class="left" style="text-decoration: none;">VELORA</a>
+            <div class="head" id="navMenu">
+                <ul class="list">
+                    <li><a href="#hot-coffee-section">HOT COFFEE</a></li>
+                    <li><a href="#cold-coffee-section">COLD COFFEE</a></li>
+                    <li><a href="#bakery-section">BAKERY</a></li>
+                    <li><a href="#dessert-section">DESSERT</a></li>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="dropdown mobile-dropdown">
+                    <ul class="dropdown-menu">
+                        <li><a href="#hot-coffee-section">Hot Coffee</a></li>
+                        <li><a href="#cold-coffee-section">Cold Coffee</a></li>
+                        <li><a href="#bakery-section">Bakery</a></li>
+                        <li><a href="#dessert-section">Dessert</a></li>
+                    </ul>
+                </div>
+                <a href="#" id="cart-icon-btn" class="cart-icon-btn">
+                    🛒 <span id="cart-badge" class="cart-badge">0</span>
+                </a>
+                <div class="menu-icon" id="menuBtn">&#9776;</div>
+            </div>
+        </header>
+
     <!-- ====== MODALS (View All Popups) ====== -->
 
     <!-- Hot Coffee Modal -->
@@ -45,7 +71,14 @@
                             <p>Rich espresso with steamed milk and light foam</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 250</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -60,7 +93,14 @@
                             <p>Bold espresso topped with velvety milk foam</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 220</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -75,7 +115,14 @@
                             <p>Pure strong coffee shot with rich crema on top</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 180</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -90,7 +137,14 @@
                             <p>Traditional finely ground coffee with cardamom</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 200</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -105,7 +159,14 @@
                             <p>Espresso with chocolate, steamed milk &amp; whipped cream</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 280</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -120,7 +181,14 @@
                             <p>Double espresso diluted with hot water for smooth taste</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 190</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -135,7 +203,14 @@
                             <p>Espresso marked with a dash of foamed milk</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 230</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -150,7 +225,14 @@
                             <p>Smooth microfoam over a double ristretto shot</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 240</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -165,7 +247,14 @@
                             <p>Equal parts espresso and warm milk, perfectly balanced</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 210</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -180,7 +269,14 @@
                             <p>Hand-poured specialty filter coffee, clean and aromatic</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 260</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -215,7 +311,14 @@
                             <p>Chilled espresso with cold milk over ice cubes</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 280</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -230,7 +333,14 @@
                             <p>Slow-steeped for 24 hours, smooth and bold</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 260</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -245,7 +355,14 @@
                             <p>Blended iced coffee with cream and caramel drizzle</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 320</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -260,7 +377,14 @@
                             <p>Chocolate espresso blend with ice and whipped cream</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 300</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -275,7 +399,14 @@
                             <p>Layered caramel, milk, and espresso over ice</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 290</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -290,7 +421,14 @@
                             <p>Strong coffee with sweet condensed milk on ice</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 270</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -305,7 +443,14 @@
                             <p>Double shot espresso with cold water and ice</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 220</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -320,7 +465,14 @@
                             <p>Blended coffee with banana, chocolate &amp; cocoa</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 340</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -335,7 +487,14 @@
                             <p>Chilled espresso with frothed milk foam over ice</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 250</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -350,7 +509,14 @@
                             <p>Nitrogen-infused cold brew with a silky, creamy texture</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 310</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -385,7 +551,14 @@
                             <p>Golden flaky butter croissant, freshly baked</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 150</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -400,7 +573,14 @@
                             <p>Rich moist muffin loaded with chocolate chips</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 180</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -415,7 +595,14 @@
                             <p>Soft swirl pastry with cream cheese frosting</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 200</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -430,7 +617,14 @@
                             <p>Flaky pastry filled with fruit and custard</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 170</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -445,7 +639,14 @@
                             <p>Buttery scone bursting with fresh blueberries</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 160</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -460,7 +661,14 @@
                             <p>Flaky layers wrapped around dark chocolate bars</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 190</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -475,7 +683,14 @@
                             <p>Warm chewy cookies with chocolate chip chunks</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 120</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -490,7 +705,14 @@
                             <p>Moist banana loaf topped with crunchy walnuts</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 140</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -505,7 +727,14 @@
                             <p>Artisan slow-fermented sourdough with a crispy crust</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 130</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -520,7 +749,14 @@
                             <p>Toasted bagel with cream cheese and spice blend</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 175</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -555,7 +791,14 @@
                             <p>Classic Italian layers of coffee-soaked ladyfingers</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 350</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -570,7 +813,14 @@
                             <p>Creamy New York style with buttery graham crust</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 320</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -585,7 +835,14 @@
                             <p>Fudgy dark chocolate brownie with walnut pieces</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 250</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -600,7 +857,14 @@
                             <p>Rich vanilla custard with caramelized sugar top</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 380</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -615,7 +879,14 @@
                             <p>Silky Italian cream dessert with berry compote</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 300</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -630,7 +901,14 @@
                             <p>Choux pastry filled with cream, topped with glaze</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 220</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -645,7 +923,14 @@
                             <p>Three-layer chocolate cake with ganache frosting</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 280</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -660,7 +945,14 @@
                             <p>Warm spiced apple filling in a buttery crust</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 260</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -675,7 +967,14 @@
                             <p>Delicate almond shells with rich ganache filling</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 180</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -690,7 +989,14 @@
                             <p>Airy dark chocolate mousse with whipped cream topping</p>
                             <div class="modal-card-footer">
                                 <span class="price">Rs. 290</span>
-                                <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                    <div class="qty-selector">
+                                                                        <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                        <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                        <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                    </div>
+                                                                    <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                </div>
                             </div>
                         </div>
                     </article>
@@ -700,45 +1006,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="top-nav" id="top-nav">
-        <a href="../Home.html" class="nav-brand" style="text-decoration: none;">
-            <span class="nav-logo-dot"></span>
-            <div class="menu-header">Our Menu</div>
-        </a>
-
-        <button class="hamburger" id="hamburger-btn" aria-label="Toggle menu" aria-expanded="false">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-
-        <div class="menu-items-container" id="nav-menu">
-            <a href="#hot-coffee-section" class="menu-item" onclick="closeNav()">
-                <div class="nav-icon-wrap hot-icon-wrap">
-                    <img src="../images/1.svg" class="svg-icon" alt="Hot Coffee">
-                </div>
-                <span class="label">Hot Coffee</span>
-            </a>
-            <a href="#cold-coffee-section" class="menu-item" onclick="closeNav()">
-                <div class="nav-icon-wrap cold-icon-wrap">
-                    <img src="../images/2.svg" class="svg-icon" alt="Cold Coffee">
-                </div>
-                <span class="label">Cold Coffee</span>
-            </a>
-            <a href="#bakery-section" class="menu-item" onclick="closeNav()">
-                <div class="nav-icon-wrap bakery-icon-wrap">
-                    <img src="../images/3.svg" class="svg-icon" alt="Bakery">
-                </div>
-                <span class="label">Bakery</span>
-            </a>
-            <a href="#dessert-section" class="menu-item" onclick="closeNav()">
-                <div class="nav-icon-wrap dessert-icon-wrap">
-                    <img src="../images/4.svg" class="svg-icon" alt="Dessert">
-                </div>
-                <span class="label">Dessert</span>
-            </a>
-        </div>
-    </nav>
+    
 
     <!-- Hero Section -->
     <section class="hero-section">
@@ -756,11 +1024,10 @@
                     <h2>Hot Coffee</h2>
                     <p>Warm your soul with our signature hot beverages</p>
                 </div>
-            </div>
-
-            <div class="carousel-header">
-                <span class="carousel-count">10 items</span>
-                <button class="view-all-btn" onclick="openModal('modal-hot')" id="viewall-hot">View All &rarr;</button>
+                <div class="category-banner-actions">
+                    <span class="carousel-count">10 items</span>
+                    <button class="view-all-btn" onclick="openModal('modal-hot')" id="viewall-hot">View All &rarr;</button>
+                </div>
             </div>
 
             <div class="carousel">
@@ -788,7 +1055,14 @@
                                         <p class="card-desc">Rich espresso with steamed milk and light foam</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 250</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -805,7 +1079,14 @@
                                         <p class="card-desc">Bold espresso topped with velvety milk foam</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 220</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -821,7 +1102,14 @@
                                         <p class="card-desc">Pure strong coffee shot with rich crema on top</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 180</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -837,7 +1125,14 @@
                                         <p class="card-desc">Traditional finely ground coffee with cardamom</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 200</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -857,7 +1152,14 @@
                                         </p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 280</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -873,7 +1175,14 @@
                                         <p class="card-desc">Double espresso diluted with hot water for smooth taste</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 190</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -889,7 +1198,14 @@
                                         <p class="card-desc">Espresso marked with a dash of foamed milk</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 230</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -905,7 +1221,14 @@
                                         <p class="card-desc">Smooth microfoam over a double ristretto shot</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 240</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -929,12 +1252,10 @@
                     <h2>Cold Coffee</h2>
                     <p>Refresh yourself with our iced creations</p>
                 </div>
-            </div>
-
-            <div class="carousel-header">
-                <span class="carousel-count">10 items</span>
-                <button class="view-all-btn" onclick="openModal('modal-cold')" id="viewall-cold">View All
-                    &rarr;</button>
+                <div class="category-banner-actions">
+                    <span class="carousel-count">10 items</span>
+                    <button class="view-all-btn" onclick="openModal('modal-cold')" id="viewall-cold">View All &rarr;</button>
+                </div>
             </div>
 
             <div class="carousel">
@@ -961,7 +1282,14 @@
                                         <p class="card-desc">Chilled espresso with cold milk over ice cubes</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 280</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -977,7 +1305,14 @@
                                         <p class="card-desc">Slow-steeped for 24 hours, smooth and bold</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 260</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -993,7 +1328,14 @@
                                         <p class="card-desc">Blended iced coffee with cream and caramel drizzle</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 320</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1009,7 +1351,14 @@
                                         <p class="card-desc">Chocolate espresso blend with ice and whipped cream</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 300</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1028,7 +1377,14 @@
                                         <p class="card-desc">Layered caramel, milk, and espresso over ice</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 290</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1044,7 +1400,14 @@
                                         <p class="card-desc">Strong coffee with sweet condensed milk on ice</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 270</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1060,7 +1423,14 @@
                                         <p class="card-desc">Double shot espresso with cold water and ice</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 220</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1076,7 +1446,14 @@
                                         <p class="card-desc">Blended coffee with banana, chocolate &amp; cocoa</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 340</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1100,12 +1477,10 @@
                     <h2>Bakery</h2>
                     <p>Freshly baked goods straight from our oven</p>
                 </div>
-            </div>
-
-            <div class="carousel-header">
-                <span class="carousel-count">10 items</span>
-                <button class="view-all-btn" onclick="openModal('modal-bakery')" id="viewall-bakery">View All
-                    &rarr;</button>
+                <div class="category-banner-actions">
+                    <span class="carousel-count">10 items</span>
+                    <button class="view-all-btn" onclick="openModal('modal-bakery')" id="viewall-bakery">View All &rarr;</button>
+                </div>
             </div>
 
             <div class="carousel">
@@ -1132,7 +1507,14 @@
                                         <p class="card-desc">Golden flaky butter croissant, freshly baked</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 150</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1148,7 +1530,14 @@
                                         <p class="card-desc">Rich moist muffin loaded with chocolate chips</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 180</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1164,7 +1553,14 @@
                                         <p class="card-desc">Soft swirl pastry with cream cheese frosting</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 200</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1180,7 +1576,14 @@
                                         <p class="card-desc">Flaky pastry filled with fruit and custard</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 170</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1199,7 +1602,14 @@
                                         <p class="card-desc">Buttery scone bursting with fresh blueberries</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 160</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1215,7 +1625,14 @@
                                         <p class="card-desc">Flaky layers wrapped around dark chocolate bars</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 190</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1231,7 +1648,14 @@
                                         <p class="card-desc">Warm chewy cookies with chocolate chip chunks</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 120</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1247,7 +1671,14 @@
                                         <p class="card-desc">Moist banana loaf topped with crunchy walnuts</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 140</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1271,12 +1702,10 @@
                     <h2>Dessert</h2>
                     <p>Indulge in our heavenly sweet creations</p>
                 </div>
-            </div>
-
-            <div class="carousel-header">
-                <span class="carousel-count">10 items</span>
-                <button class="view-all-btn" onclick="openModal('modal-dessert')" id="viewall-dessert">View All
-                    &rarr;</button>
+                <div class="category-banner-actions">
+                    <span class="carousel-count">10 items</span>
+                    <button class="view-all-btn" onclick="openModal('modal-dessert')" id="viewall-dessert">View All &rarr;</button>
+                </div>
             </div>
 
             <div class="carousel">
@@ -1303,7 +1732,14 @@
                                         <p class="card-desc">Classic Italian layers of coffee-soaked ladyfingers</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 350</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1319,7 +1755,14 @@
                                         <p class="card-desc">Creamy New York style with buttery graham crust</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 320</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1335,7 +1778,14 @@
                                         <p class="card-desc">Fudgy dark chocolate brownie with walnut pieces</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 250</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1350,7 +1800,14 @@
                                         <p class="card-desc">Rich vanilla custard with caramelized sugar top</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 380</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1369,7 +1826,14 @@
                                         <p class="card-desc">Silky Italian cream dessert with berry compote</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 300</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1384,7 +1848,14 @@
                                         <p class="card-desc">Choux pastry filled with cream, topped with glaze</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 220</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1400,7 +1871,14 @@
                                         <p class="card-desc">Three-layer chocolate cake with ganache frosting</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 280</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1416,7 +1894,14 @@
                                         <p class="card-desc">Warm spiced apple filling in a buttery crust</p>
                                         <div class="card-footer">
                                             <span class="price">Rs. 260</span>
-                                            <a href="#" class="order-btn">Order Now</a>
+<div class="add-to-cart-wrapper">
+                                                                                <div class="qty-selector">
+                                                                                    <button class="qty-btn minus" onclick="updateQty(this, -1)">-</button>
+                                                                                    <input type="number" class="qty-input" value="1" min="1" readonly>
+                                                                                    <button class="qty-btn plus" onclick="updateQty(this, 1)">+</button>
+                                                                                </div>
+                                                                                <button class="add-to-cart-btn" onclick="addToCart(this)">Add to Cart</button>
+                                                                            </div>
                                         </div>
                                     </div>
                                 </article>
@@ -1548,14 +2033,32 @@
         </div>
     </footer>
 
-    <script>
+    <!-- ====== CART SIDEBAR ====== -->
+    <div class="cart-overlay" id="cart-overlay">
+        <div class="cart-modal" id="cart-sidebar">
+            <div class="cart-header">
+                <h2>Your Cart</h2>
+                <button class="close-cart-btn" id="close-cart-btn">&times;</button>
+            </div>
+            <div class="cart-items" id="cart-items-container">
+                <!-- Items will be injected here -->
+            </div>
+            <div class="cart-footer">
+                <div class="cart-total">
+                    <span>Total:</span>
+                    <span id="cart-total-price">Rs. 0</span>
+                </div>
+                <button class="checkout-btn" onclick="window.location.href='#order'">Go to Order</button>
+            </div>
+        </div>
+    </div>
+<script>
         // ====== MODAL SYSTEM ======
         function openModal(id) {
             const overlay = document.getElementById(id);
             if (!overlay) return;
             overlay.classList.add('modal-active');
             document.body.classList.add('modal-open');
-            // trap focus inside modal
             overlay.querySelector('.modal-close').focus();
         }
 
@@ -1566,14 +2069,12 @@
             document.body.classList.remove('modal-open');
         }
 
-        // Close when clicking overlay background
         document.querySelectorAll('.modal-overlay').forEach(overlay => {
             overlay.addEventListener('click', function (e) {
                 if (e.target === this) closeAllModals();
             });
         });
 
-        // Close buttons
         document.querySelectorAll('.modal-close').forEach(btn => {
             btn.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -1581,34 +2082,158 @@
             });
         });
 
-        // Escape key
         document.addEventListener('keydown', function (e) {
-            if (e.key === 'Escape') closeAllModals();
+            if (e.key === 'Escape') {
+                closeAllModals();
+                if (cartOverlay) cartOverlay.classList.remove('active');
+            }
         });
 
-        // ====== HAMBURGER MENU ======
-        const hamburgerBtn = document.getElementById('hamburger-btn');
-        const navMenu = document.getElementById('nav-menu');
+        // ====== MOBILE MENU TOGGLE ======
+        const menuBtn = document.getElementById('menuBtn');
+        const navMenuHead = document.getElementById('navMenu');
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const mobileDropdownMenu = document.querySelector('.mobile-dropdown .dropdown-menu');
 
-        hamburgerBtn.addEventListener('click', function () {
-            const isOpen = navMenu.classList.toggle('nav-open');
-            hamburgerBtn.classList.toggle('ham-active');
-            hamburgerBtn.setAttribute('aria-expanded', isOpen);
-        });
-
-        function closeNav() {
-            navMenu.classList.remove('nav-open');
-            hamburgerBtn.classList.remove('ham-active');
-            hamburgerBtn.setAttribute('aria-expanded', false);
+        if (menuBtn && navMenuHead) {
+            menuBtn.addEventListener('click', () => {
+                navMenuHead.classList.toggle('active');
+            });
         }
 
-        // Close nav on outside click
-        document.addEventListener('click', function (e) {
-            if (!e.target.closest('.top-nav')) closeNav();
-        });
+        if (mobileMenuBtn && mobileDropdownMenu) {
+            mobileMenuBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                mobileDropdownMenu.classList.toggle('show');
+            });
+        }
+
+        // ====== CART SYSTEM ======
+        let cart = [];
+        const cartBadge = document.getElementById('cart-badge');
+        const cartOverlay = document.getElementById('cart-overlay');
+        const cartItemsContainer = document.getElementById('cart-items-container');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+        const cartIconBtn = document.getElementById('cart-icon-btn');
+        const closeCartBtn = document.getElementById('close-cart-btn');
+
+        function updateQty(btn, change) {
+            const input = btn.parentElement.querySelector('.qty-input');
+            let val = parseInt(input.value) + change;
+            if (val >= 1) input.value = val;
+        }
+
+        function addToCart(btn) {
+            const card = btn.closest('.modal-card') || btn.closest('.card');
+            if (!card) return;
+
+            const titleEl = card.querySelector('.card-title') || card.querySelector('h3');
+            const title = titleEl ? titleEl.innerText : 'Item';
+            const priceStr = card.querySelector('.price').innerText;
+            const price = parseInt(priceStr.replace(/[^0-9]/g, ''));
+            const imageSrc = card.querySelector('img').src;
+            const qtyInput = card.querySelector('.qty-input');
+            const quantity = qtyInput ? parseInt(qtyInput.value) : 1;
+
+            const existingItem = cart.find(item => item.title === title);
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({ title, price, quantity, imageSrc });
+            }
+
+            if (qtyInput) qtyInput.value = 1;
+
+            // Visual feedback
+            const origText = btn.innerText;
+            btn.innerText = '✓ Added!';
+            btn.style.background = '#28a745';
+            btn.style.color = '#fff';
+            btn.style.borderColor = '#28a745';
+            setTimeout(() => {
+                btn.innerText = origText;
+                btn.style.background = '';
+                btn.style.color = '';
+                btn.style.borderColor = '';
+            }, 1200);
+
+            renderCart();
+        }
+
+        function renderCart() {
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+            let totalItems = 0;
+
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<div class="empty-cart-msg">🛒<br>Your cart is empty</div>';
+            }
+
+            cart.forEach((item, index) => {
+                total += item.price * item.quantity;
+                totalItems += item.quantity;
+
+                const el = document.createElement('div');
+                el.className = 'cart-item';
+                el.innerHTML = `
+                    <img src="${item.imageSrc}" alt="${item.title}">
+                    <div class="cart-item-details">
+                        <h4>${item.title}</h4>
+                        <div class="cart-item-price">Rs. ${item.price} × ${item.quantity} = <strong>Rs. ${item.price * item.quantity}</strong></div>
+                        <div class="cart-item-actions">
+                            <button onclick="changeCartItemQty(${index}, -1)">−</button>
+                            <span>${item.quantity}</span>
+                            <button onclick="changeCartItemQty(${index}, 1)">+</button>
+                            <button class="remove-btn" onclick="removeFromCart(${index})">✕ Remove</button>
+                        </div>
+                    </div>
+                `;
+                cartItemsContainer.appendChild(el);
+            });
+
+            cartBadge.innerText = totalItems;
+            cartTotalPrice.innerText = 'Rs. ' + total;
+        }
+
+        function changeCartItemQty(index, change) {
+            if (cart[index].quantity + change > 0) {
+                cart[index].quantity += change;
+            } else {
+                cart.splice(index, 1);
+            }
+            renderCart();
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            renderCart();
+        }
+
+        // Toggle Cart
+        if (cartIconBtn) {
+            cartIconBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                cartOverlay.classList.add('active');
+            });
+        }
+
+        if (closeCartBtn) {
+            closeCartBtn.addEventListener('click', () => {
+                cartOverlay.classList.remove('active');
+            });
+        }
+
+        if (cartOverlay) {
+            cartOverlay.addEventListener('click', (e) => {
+                if (e.target === cartOverlay) cartOverlay.classList.remove('active');
+            });
+        }
+
+        renderCart();
     </script>
 
-</body>
+
+    </body>
 
 </html>
 
