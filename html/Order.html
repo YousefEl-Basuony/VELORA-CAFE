@@ -49,9 +49,14 @@
     <section class="order-container">
         <div class="order-grid" id="orderGrid">
             <!-- Dynamic Cart Items will be injected here -->
-            <div id="empty-cart-msg" style="grid-column: 1/-1; text-align: center; padding: 60px 0; color: #d1d1d1;">
-                <p style="font-size: 20px; margin-bottom: 20px;">Your cart is currently empty.</p>
-                <a href="Menu.html" class="add-btn" style="text-decoration: none; display: inline-block; padding: 12px 30px; border-radius: 30px; font-size: 14px;">Browse Our Menu</a>
+            <!-- Empty State Design -->
+            <div id="empty-cart-msg" class="empty-cart-state">
+                <i class="fas fa-shopping-basket"></i>
+                <p>Your premium coffee selection is currently empty.</p>
+                <a href="Menu.html" class="discover-btn">
+                    <span>Discover Our Menu</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
         </div>
     </section>
@@ -62,19 +67,58 @@
         <div class="suggestions-wrapper">
             <div class="suggestions-grid" id="suggestionsGrid">
                 <!-- Suggestion Cards -->
+                <!-- Suggestion 1 -->
                 <div class="suggestion-card">
                     <div class="suggestion-img">
                         <img src="https://images.unsplash.com/photo-1561047029-3000c68339ca?auto=format&fit=crop&w=500&h=380&q=80" alt="Cappuccino">
                         <span class="suggestion-badge">POPULAR</span>
                     </div>
                     <h3>Cappuccino</h3>
-                    <p class="suggestion-desc">Bold espresso topped with velvety milk foam</p>
+                    <p class="suggestion-desc">Bold espresso with velvety foam</p>
                     <div class="suggestion-footer">
                         <span class="suggestion-price">Rs. 220</span>
                         <button class="add-btn" onclick="quickAdd('Cappuccino', 220, 'https://images.unsplash.com/photo-1561047029-3000c68339ca?auto=format&fit=crop&w=500&h=380&q=80')">+</button>
                     </div>
                 </div>
-                <!-- ... other suggestions ... -->
+                <!-- Suggestion 2 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-img">
+                        <img src="https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=500&h=380&q=80" alt="Danish Pastry">
+                        <span class="suggestion-badge">FRESH</span>
+                    </div>
+                    <h3>Danish Pastry</h3>
+                    <p class="suggestion-desc">Flaky pastry with sweet glaze</p>
+                    <div class="suggestion-footer">
+                        <span class="suggestion-price">Rs. 180</span>
+                        <button class="add-btn" onclick="quickAdd('Danish Pastry', 180, 'https://images.unsplash.com/photo-1484723091739-30a097e8f929?auto=format&fit=crop&w=500&h=380&q=80')">+</button>
+                    </div>
+                </div>
+                <!-- Suggestion 3 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-img">
+                        <img src="https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&h=380&q=80" alt="Double Espresso">
+                        <span class="suggestion-badge">STRONG</span>
+                    </div>
+                    <h3>Double Espresso</h3>
+                    <p class="suggestion-desc">Pure concentrated coffee shot</p>
+                    <div class="suggestion-footer">
+                        <span class="suggestion-price">Rs. 240</span>
+                        <button class="add-btn" onclick="quickAdd('Double Espresso', 240, 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?auto=format&fit=crop&w=500&h=380&q=80')">+</button>
+                    </div>
+                </div>
+                <!-- Suggestion 4 -->
+                <div class="suggestion-card">
+                    <div class="suggestion-img">
+                        <img src="https://images.unsplash.com/photo-1567327613485-fbc7bf196198?auto=format&fit=crop&w=500&h=380&q=80" alt="Blueberry Muffin">
+                        <span class="suggestion-badge">SWEET</span>
+                    </div>
+                    <h3>Blueberry Muffin</h3>
+                    <p class="suggestion-desc">Baked fresh with real berries</p>
+                    <div class="suggestion-footer">
+                        <span class="suggestion-price">Rs. 150</span>
+                        <button class="add-btn" onclick="quickAdd('Blueberry Muffin', 150, 'https://images.unsplash.com/photo-1567327613485-fbc7bf196198?auto=format&fit=crop&w=500&h=380&q=80')">+</button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -102,26 +146,59 @@
     </footer>
 
     <script>
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Use a function to safely get/save cart
+        const getCart = () => {
+            try {
+                return JSON.parse(localStorage.getItem('cart')) || [];
+            } catch (e) {
+                console.error("Cart parse error", e);
+                return [];
+            }
+        };
 
-        function renderOrderItems() {
+        let cart = getCart();
+
+        const saveCart = () => {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            // Dispatch event for other tabs and same tab listeners
+            window.dispatchEvent(new Event('storage'));
+        };
+
+        const showNotification = (message) => {
+            console.log("Notification:", message);
+            const n = document.createElement('div');
+            n.className = 'notification success-notification';
+            n.innerText = message;
+            n.style.position = 'fixed';
+            n.style.top = '20px';
+            n.style.right = '20px';
+            n.style.zIndex = '10000';
+            document.body.appendChild(n);
+            setTimeout(() => n.remove(), 3000);
+        };
+
+        const renderOrderItems = () => {
             const orderGrid = document.getElementById('orderGrid');
             const totalItemsEl = document.getElementById('totalItems');
             const totalPriceEl = document.getElementById('totalPrice');
             const cartBadgeNav = document.getElementById('cart-badge-nav');
             const emptyMsg = document.getElementById('empty-cart-msg');
 
+            if (!orderGrid || !totalItemsEl || !totalPriceEl) return;
+
             if (cart.length === 0) {
                 orderGrid.innerHTML = '';
-                orderGrid.appendChild(emptyMsg);
-                emptyMsg.style.display = 'block';
+                if(emptyMsg) {
+                    orderGrid.appendChild(emptyMsg);
+                    emptyMsg.style.display = 'block';
+                }
                 totalItemsEl.innerText = '0';
                 totalPriceEl.innerText = 'Rs. 0';
-                cartBadgeNav.innerText = '0';
+                if(cartBadgeNav) cartBadgeNav.innerText = '0';
                 return;
             }
 
-            emptyMsg.style.display = 'none';
+            if(emptyMsg) emptyMsg.style.display = 'none';
             orderGrid.innerHTML = '';
             let total = 0;
             let totalItems = 0;
@@ -133,9 +210,11 @@
                 const card = document.createElement('div');
                 card.className = 'card';
                 card.innerHTML = `
-                    <div class="card-img-wrapper">
+                    <div class="card-img-wrapper" style="position: relative;">
                         <img src="${item.imageSrc}" alt="${item.title}">
-                        <button class="remove-card-btn" onclick="removeFromOrder(${index})">✕</button>
+                        <button class="remove-card-btn" 
+                                style="position: absolute; top: 10px; left: 10px; z-index: 999; cursor: pointer;" 
+                                onclick="event.stopPropagation(); window.removeFromOrder(${index})">✕</button>
                     </div>
                     <div class="card-content">
                         <h3 class="card-title">${item.title}</h3>
@@ -143,9 +222,9 @@
                         <div class="card-bottom">
                             <span class="price">Rs. ${item.price}</span>
                             <div class="qty">
-                                <button onclick="updateItemQty(${index}, -1)">-</button>
+                                <button onclick="event.stopPropagation(); window.updateItemQty(${index}, -1)">-</button>
                                 <span>${item.quantity}</span>
-                                <button onclick="updateItemQty(${index}, 1)">+</button>
+                                <button onclick="event.stopPropagation(); window.updateItemQty(${index}, 1)">+</button>
                             </div>
                         </div>
                     </div>
@@ -155,61 +234,70 @@
 
             totalItemsEl.innerText = totalItems;
             totalPriceEl.innerText = 'Rs. ' + total;
-            cartBadgeNav.innerText = totalItems;
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
+            if(cartBadgeNav) cartBadgeNav.innerText = totalItems;
+        };
 
-        function updateItemQty(index, change) {
+        // Global functions for HTML onclick
+        window.updateItemQty = (index, change) => {
             if (cart[index].quantity + change > 0) {
                 cart[index].quantity += change;
             } else {
                 cart.splice(index, 1);
             }
+            saveCart();
             renderOrderItems();
-        }
+        };
 
-        function removeFromOrder(index) {
+        window.removeFromOrder = (index) => {
+            console.log("Removing item at index:", index);
             cart.splice(index, 1);
+            saveCart();
             renderOrderItems();
             showNotification("Item removed from order");
-        }
+        };
 
-        function quickAdd(title, price, imageSrc) {
+        window.quickAdd = (title, price, imageSrc) => {
+            console.log("Quick adding:", title);
             const existingItem = cart.find(item => item.title === title);
             if (existingItem) {
                 existingItem.quantity += 1;
             } else {
                 cart.push({ title, price, quantity: 1, imageSrc });
             }
+            saveCart();
             renderOrderItems();
-            showNotification(`✓ Added ${title}`);
-        }
+            showNotification(`✓ Added ${title} to your order`);
+        };
 
-        function showNotification(message) {
-            const n = document.createElement('div');
-            n.className = 'notification success-notification';
-            n.innerText = message;
-            document.body.appendChild(n);
-            setTimeout(() => n.remove(), 2500);
-        }
-
-        function placeOrder() {
-            if (cart.length === 0) return;
-            showNotification("🎉 Order placed successfully!");
+        window.placeOrder = () => {
+            if (cart.length === 0) {
+                showNotification("Your cart is empty!");
+                return;
+            }
+            showNotification("🎉 Order placed successfully! Thank you.");
             cart = [];
+            saveCart();
             renderOrderItems();
-        }
+        };
 
         window.addEventListener('storage', () => {
-            cart = JSON.parse(localStorage.getItem('cart')) || [];
+            cart = getCart();
             renderOrderItems();
         });
 
-        const menuBtn = document.getElementById('menuBtn');
-        const navMenu = document.getElementById('navMenu');
-        menuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+        // Toggle mobile menu
+        const setupNav = () => {
+            const menuBtn = document.getElementById('menuBtn');
+            const navMenu = document.getElementById('navMenu');
+            if(menuBtn && navMenu) {
+                menuBtn.addEventListener('click', () => navMenu.classList.toggle('active'));
+            }
+        };
 
-        document.addEventListener('DOMContentLoaded', renderOrderItems);
+        document.addEventListener('DOMContentLoaded', () => {
+            setupNav();
+            renderOrderItems();
+        });
     </script>
 </body>
 </html>
