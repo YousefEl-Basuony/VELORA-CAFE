@@ -2294,9 +2294,11 @@
         const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
         const mobileDropdownMenu = document.querySelector('.mobile-dropdown .dropdown-menu');
 
-        if (menuBtn && navMenuHead) {
-            menuBtn.addEventListener('click', () => {
-                navMenuHead.classList.toggle('active');
+        if (menuBtn) {
+            menuBtn.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (navMenuHead) navMenuHead.classList.toggle('active');
+                if (mobileDropdownMenu) mobileDropdownMenu.classList.toggle('show');
             });
         }
 
@@ -2304,6 +2306,22 @@
             mobileMenuBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 mobileDropdownMenu.classList.toggle('show');
+            });
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (menuBtn && !menuBtn.contains(e.target) && mobileDropdownMenu && !mobileDropdownMenu.contains(e.target)) {
+                mobileDropdownMenu.classList.remove('show');
+            }
+        });
+
+        if (mobileDropdownMenu) {
+            const dropdownLinks = mobileDropdownMenu.querySelectorAll('a');
+            dropdownLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileDropdownMenu.classList.remove('show');
+                });
             });
         }
 
@@ -2446,6 +2464,8 @@
                 if (e.target === cartOverlay) cartOverlay.classList.remove('active');
             });
         }
+
+        // Mobile Dropdown Menu handled in the MOBILE MENU TOGGLE section
 
         renderCart();
     </script>
