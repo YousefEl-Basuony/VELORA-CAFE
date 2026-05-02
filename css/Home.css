@@ -481,9 +481,7 @@ body {
         min-height: 100svh; /* Use small viewport height for mobile browsers */
     }
 
-    .desktop-menu-item {
-        display: none;
-    }
+    /* desktop-menu-item no longer hidden on mobile so MENU shows in hamburger */
     .list {
         display: none;
     }
@@ -536,15 +534,15 @@ body {
         width: 100%;
     }
     .right {
-        gap: 12px;
+        gap: 8px;
         align-items: center;
     }
     .right .signup-btn {
         display: none;
     }
     .right a {
-        padding: 8px 16px;
-        font-size: 12px;
+        padding: 6px 12px;
+        font-size: 11px;
     }
     .right .mobile-dropdown {
         display: inline-block;
@@ -631,11 +629,14 @@ body {
         letter-spacing: 1.5px;
     }
     .menu-icon {
-        font-size: 24px;
+        font-size: 22px;
+    }
+    .right {
+        gap: 4px;
     }
     .right a {
-        padding: 7px 14px;
-        font-size: 11px;
+        padding: 5px 8px;
+        font-size: 10px;
     }
 }
 
