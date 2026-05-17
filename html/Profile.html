@@ -90,7 +90,6 @@
     </style>
   </head>
   <body>
-    <!-- Header Navigation -->
     <header class="header-container">
       <a href="Home.html" class="left" style="text-decoration: none">VELORA</a>
       <div class="head" id="navMenu">
@@ -101,37 +100,30 @@
         </ul>
       </div>
     </header>
-
     <div class="profile-container" id="profileCard" style="display: none;">
       <i class="fa-solid fa-circle-user profile-icon"></i>
       <h1 class="profile-name" id="pName">Loading...</h1>
       <p class="profile-email" id="pEmail">...</p>
-      
       <div class="profile-details">
         <p><strong>Account ID:</strong> <span id="pId">...</span></p>
         <p><strong>Member Since:</strong> <span id="pDate">...</span></p>
         <p><strong>Status:</strong> <span style="color: #28a745;">Active</span></p>
       </div>
-      
       <div>
         <a href="Home.html" class="home-btn">Back to Home</a>
         <a href="../php/logout.php" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
       </div>
     </div>
-
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
         try {
           const response = await fetch('../php/get_profile.php');
           const data = await response.json();
-          
           if (data.logged_in) {
             document.getElementById('profileCard').style.display = 'block';
             document.getElementById('pName').innerText = data.user.name;
             document.getElementById('pEmail').innerText = data.user.email;
             document.getElementById('pId').innerText = "#00" + data.user.id;
-            
-            // Format date
             const date = new Date(data.user.created_at);
             document.getElementById('pDate').innerText = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
           } else {

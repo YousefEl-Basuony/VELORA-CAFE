@@ -1,10 +1,7 @@
-// Counter Animation
 const counters = document.querySelectorAll(".counter");
-
 const observerOptions = {
   threshold: 0.5,
 };
-
 const observer = new IntersectionObserver(function (entries) {
   entries.forEach((entry) => {
     if (entry.isIntersecting && !entry.target.classList.contains("counted")) {
@@ -12,7 +9,6 @@ const observer = new IntersectionObserver(function (entries) {
         const target = +entry.target.getAttribute("data-target");
         const count = +entry.target.innerText;
         const increment = Math.ceil(target / 100);
-
         if (count < target) {
           entry.target.innerText = count + increment;
           setTimeout(updateCounter, 30);
@@ -25,12 +21,9 @@ const observer = new IntersectionObserver(function (entries) {
     }
   });
 }, observerOptions);
-
 counters.forEach((counter) => {
   observer.observe(counter);
 });
-
-// Scroll Reveal Animation
 const revealElements = document.querySelectorAll(".reveal");
 const revealObserver = new IntersectionObserver(
   (entries) => {
@@ -42,10 +35,7 @@ const revealObserver = new IntersectionObserver(
   },
   { threshold: 0.1 },
 );
-
 revealElements.forEach((el) => revealObserver.observe(el));
-
-// Smooth scroll for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {
     e.preventDefault();

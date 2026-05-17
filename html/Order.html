@@ -11,7 +11,6 @@
     />
   </head>
   <body>
-    <!-- Header Navigation -->
     <header class="header-container">
       <a href="Home.html" class="left">VELORA</a>
       <div class="head" id="navMenu">
@@ -29,8 +28,6 @@
         <div class="menu-icon" id="menuBtn">&#9776;</div>
       </div>
     </header>
-
-    <!-- SUMMARY SECTION -->
     <section class="summary-section">
       <div class="summary-box">
         <div class="summary-item">
@@ -60,12 +57,8 @@
         </div>
       </div>
     </section>
-
-    <!-- ORDER CONTENT -->
     <section class="order-container">
       <div class="order-grid" id="orderGrid">
-        <!-- Dynamic Cart Items will be injected here -->
-        <!-- Empty State Design -->
         <div id="empty-cart-msg" class="empty-cart-state">
           <i class="fas fa-shopping-basket"></i>
           <p>Your premium coffee selection is currently empty.</p>
@@ -76,14 +69,10 @@
         </div>
       </div>
     </section>
-
-    <!-- SUGGESTIONS SECTION -->
     <section class="suggestions-section">
       <h2>Recommended For You</h2>
       <div class="suggestions-wrapper">
         <div class="suggestions-grid" id="suggestionsGrid">
-          <!-- Suggestion Cards -->
-          <!-- Suggestion 1 -->
           <div class="suggestion-card">
             <div class="suggestion-img">
               <img
@@ -110,7 +99,6 @@
               </button>
             </div>
           </div>
-          <!-- Suggestion 2 -->
           <div class="suggestion-card">
             <div class="suggestion-img">
               <img
@@ -137,7 +125,6 @@
               </button>
             </div>
           </div>
-          <!-- Suggestion 3 -->
           <div class="suggestion-card">
             <div class="suggestion-img">
               <img
@@ -164,7 +151,6 @@
               </button>
             </div>
           </div>
-          <!-- Suggestion 4 -->
           <div class="suggestion-card">
             <div class="suggestion-img">
               <img
@@ -194,8 +180,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Footer -->
     <footer class="main-footer">
       <div class="footer-container">
         <div class="footer-col">
@@ -219,9 +203,7 @@
         </div>
       </div>
     </footer>
-
     <script>
-      // Use a function to safely get/save cart
       const getCart = () => {
         try {
           return JSON.parse(localStorage.getItem("cart")) || [];
@@ -230,15 +212,11 @@
           return [];
         }
       };
-
       let cart = getCart();
-
       const saveCart = () => {
         localStorage.setItem("cart", JSON.stringify(cart));
-        // Dispatch event for other tabs and same tab listeners
         window.dispatchEvent(new Event("storage"));
       };
-
       const showNotification = (message) => {
         console.log("Notification:", message);
         const n = document.createElement("div");
@@ -251,16 +229,13 @@
         document.body.appendChild(n);
         setTimeout(() => n.remove(), 3000);
       };
-
       const renderOrderItems = () => {
         const orderGrid = document.getElementById("orderGrid");
         const totalItemsEl = document.getElementById("totalItems");
         const totalPriceEl = document.getElementById("totalPrice");
         const cartBadgeNav = document.getElementById("cart-badge-nav");
         const emptyMsg = document.getElementById("empty-cart-msg");
-
         if (!orderGrid || !totalItemsEl || !totalPriceEl) return;
-
         if (cart.length === 0) {
           orderGrid.innerHTML = "";
           if (emptyMsg) {
@@ -272,16 +247,13 @@
           if (cartBadgeNav) cartBadgeNav.innerText = "0";
           return;
         }
-
         if (emptyMsg) emptyMsg.style.display = "none";
         orderGrid.innerHTML = "";
         let total = 0;
         let totalItems = 0;
-
         cart.forEach((item, index) => {
           total += item.price * item.quantity;
           totalItems += item.quantity;
-
           const card = document.createElement("div");
           card.className = "card";
           card.innerHTML = `
@@ -306,13 +278,10 @@
                 `;
           orderGrid.appendChild(card);
         });
-
         totalItemsEl.innerText = totalItems;
         totalPriceEl.innerText = "Rs. " + total;
         if (cartBadgeNav) cartBadgeNav.innerText = totalItems;
       };
-
-      // Global functions for HTML onclick
       window.updateItemQty = (index, change) => {
         if (cart[index].quantity + change > 0) {
           cart[index].quantity += change;
@@ -322,7 +291,6 @@
         saveCart();
         renderOrderItems();
       };
-
       window.removeFromOrder = (index) => {
         console.log("Removing item at index:", index);
         cart.splice(index, 1);
@@ -330,7 +298,6 @@
         renderOrderItems();
         showNotification("Item removed from order");
       };
-
       window.quickAdd = (title, price, imageSrc) => {
         console.log("Quick adding:", title);
         const existingItem = cart.find((item) => item.title === title);
@@ -343,18 +310,14 @@
         renderOrderItems();
         showNotification(`✓ Added ${title} to your order`);
       };
-
       window.placeOrder = async () => {
         if (cart.length === 0) {
           showNotification("Your cart is empty!");
           return;
         }
-
         try {
-          // Check if user is logged in
           const response = await fetch("../php/check_login.php");
           const data = await response.json();
-
           if (!data.logged_in) {
             alert("يجب عليك تسجيل الدخول أولاً لتأكيد الطلب!");
             window.location.href = "index-login.html";
@@ -365,19 +328,15 @@
           alert("حدث خطأ أثناء التحقق من تسجيل الدخول.");
           return;
         }
-
         showNotification("🎉 Order placed successfully! Thank you.");
         cart = [];
         saveCart();
         renderOrderItems();
       };
-
       window.addEventListener("storage", () => {
         cart = getCart();
         renderOrderItems();
       });
-
-      // Toggle mobile menu
       const setupNav = () => {
         const menuBtn = document.getElementById("menuBtn");
         const navMenu = document.getElementById("navMenu");
@@ -387,7 +346,6 @@
           );
         }
       };
-
       document.addEventListener("DOMContentLoaded", () => {
         setupNav();
         renderOrderItems();

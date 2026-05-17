@@ -17,9 +17,10 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
+    <!-- Added Bootstrap Grid for Team Layout -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap-grid.min.css" />
     <link rel="stylesheet" href="../css/style.css" />
   </head>
-
   <body>
     <div class="page">
       <header class="header-container">
@@ -57,7 +58,6 @@
           <div class="menu-icon" id="menuBtn">&#9776;</div>
         </div>
       </header>
-
       <div class="main">
         <p class="wel">WELCOME</p>
         <h1>We serve the richest coffee in the city!</h1>
@@ -67,7 +67,6 @@
         </p>
         <a href="Order.html" class="btn">ORDER NOW</a>
       </div>
-
       <div class="particles">
         <div class="particle p1"></div>
         <div class="particle p2"></div>
@@ -76,7 +75,6 @@
         <div class="particle p5"></div>
       </div>
     </div>
-
     <section class="story" id="about">
       <div class="story-slider">
         <div class="slider-track">
@@ -100,7 +98,6 @@
         </p>
       </div>
     </section>
-
     <section class="features">
       <div class="feature">
         <h3>🌟 High Quality</h3>
@@ -115,33 +112,42 @@
         <p>Skilled baristas</p>
       </div>
     </section>
-
     <section class="team">
       <h2>Our Team</h2>
-      <div class="team-cards">
-        <div class="card">
-          <img src="../images/1771594547138.jfif" alt="Yousef El-Basuony" />
-          <h4>Yousef El-Basuony</h4>
-          <p>Web & Mobile Developer</p>
-        </div>
-        <div class="card">
-          <img src="../images/Khaled.png" alt="Khaled Elsaeed" />
-          <h4>Khaled Elsaeed</h4>
-          <p>Full stack Developer</p>
-        </div>
-        <div class="card">
-          <img src="../images/Shino.png" alt="Abdelrhman" />
-          <h4>Abdelrhman Elshinawy</h4>
-          <p>Backend Developer</p>
-        </div>
-        <div class="card">
-          <img src="../images/Ahmed.jpeg" alt="Ahmed Mohamed" />
-          <h4>Ahmed Mohamed</h4>
-          <p>Front-end Developer</p>
+      <!-- Using Bootstrap Grid System -->
+      <div class="container mt-4">
+        <div class="row g-4 justify-content-center">
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card w-100">
+              <img src="../images/1771594547138.jfif" alt="Yousef El-Basuony" />
+              <h4>Yousef El-Basuony</h4>
+              <p>Web & Mobile Developer</p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card w-100">
+              <img src="../images/Khaled.png" alt="Khaled Elsaeed" />
+              <h4>Khaled Elsaeed</h4>
+              <p>Full stack Developer</p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card w-100">
+              <img src="../images/Shino.png" alt="Abdelrhman" />
+              <h4>Abdelrhman Elshinawy</h4>
+              <p>Backend Developer</p>
+            </div>
+          </div>
+          <div class="col-12 col-sm-6 col-lg-3">
+            <div class="card w-100">
+              <img src="../images/Ahmed.jpeg" alt="Ahmed Mohamed" />
+              <h4>Ahmed Mohamed</h4>
+              <p>Front-end Developer</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
-
     <section class="stats">
       <div>
         <h2 class="counter" data-target="2000">0</h2>
@@ -156,7 +162,6 @@
         <p>Years Experience</p>
       </div>
     </section>
-
     <section class="cta">
       <h2>Fresh Coffee, Every Day</h2>
       <p>
@@ -165,7 +170,6 @@
         experience the difference!
       </p>
     </section>
-
     <footer class="main-footer">
       <div class="footer-container">
         <div class="footer-col">
@@ -218,16 +222,13 @@
     <script>
       const menuBtn = document.getElementById("menuBtn");
       const navMenu = document.getElementById("navMenu");
-
       menuBtn.addEventListener("click", () => {
         navMenu.classList.toggle("active");
       });
-
       const mobileMenuBtn = document.querySelector(".mobile-menu-btn");
       const mobileDropdownMenu = document.querySelector(
         ".mobile-dropdown .dropdown-menu",
       );
-
       if (mobileMenuBtn && mobileDropdownMenu) {
         mobileMenuBtn.addEventListener("click", (e) => {
           e.preventDefault();
@@ -245,10 +246,8 @@
             const rightDiv = document.querySelector('.right');
             const signupBtn = rightDiv.querySelector('.signup-btn');
             const loginBtn = rightDiv.querySelector('.login-btn');
-            
             if (signupBtn) signupBtn.style.display = 'none';
             if (loginBtn) loginBtn.style.display = 'none';
-            
             const profileLink = document.createElement('a');
             profileLink.href = 'Profile.html';
             profileLink.className = 'login-btn';
@@ -256,7 +255,6 @@
             profileLink.style.color = '#121212';
             profileLink.style.fontWeight = 'bold';
             profileLink.innerHTML = `<i class="fa-solid fa-user"></i> ${data.user.name.split(' ')[0]}`;
-            
             const mobileDropdown = rightDiv.querySelector('.mobile-dropdown');
             if (mobileDropdown) {
               rightDiv.insertBefore(profileLink, mobileDropdown);

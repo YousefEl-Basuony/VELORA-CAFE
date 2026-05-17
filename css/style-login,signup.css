@@ -1,30 +1,17 @@
 :root {
   --color-dark: #1a0f08;
-  /* Darkest brown - backgrounds */
   --color-dark-surface: rgba(26, 15, 8, 0.65);
-  /* Surface overlay */
   --color-brown: #3d0c02;
-  /* Dark brown - accents */
   --color-mocha: #a0825c;
-  /* Medium brown - secondary text */
   --color-cream: #e0d8ca;
-  /* Cream - primary text */
   --color-light: #f8f5f0;
-  /* Lightest - buttons */
   --color-border: rgba(224, 216, 202, 0.15);
-  /* Soft border */
 }
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-
-/* =========================================
-   MOBILE FIRST BASE STYLES
-   ========================================= */
-
 body {
   font-family: "Poppins", sans-serif;
   background-color: var(--color-dark);
@@ -34,10 +21,7 @@ body {
   justify-content: center;
   align-items: center;
   overflow-x: hidden;
-  /* Prevent horizontal scroll on mobile */
   position: relative;
-
-  /* Subtle radial gradient + original image */
   background-image:
     radial-gradient(
       circle at center,
@@ -48,20 +32,15 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  /* Performance improvement for mobile */
 }
-
-/* Background Blobs for Atmosphere */
 .blob {
   position: absolute;
   border-radius: 50%;
   filter: blur(60px);
-  /* Slightly less blur on mobile for performance */
   opacity: 0.4;
   z-index: 0;
   animation: float 12s infinite alternate ease-in-out;
 }
-
 .blob-1 {
   width: 60vw;
   height: 60vw;
@@ -69,7 +48,6 @@ body {
   top: -10vw;
   left: -10vw;
 }
-
 .blob-2 {
   width: 50vw;
   height: 50vw;
@@ -79,17 +57,14 @@ body {
   animation-delay: -6s;
   animation-duration: 15s;
 }
-
 @keyframes float {
   0% {
     transform: translate(0, 0) scale(1);
   }
-
   100% {
     transform: translate(20px, 30px) scale(1.1);
   }
 }
-
 .login-container {
   position: relative;
   z-index: 1;
@@ -97,20 +72,17 @@ body {
   display: flex;
   justify-content: center;
   padding: 0;
-  /* Full screen on mobile */
   perspective: 1000px;
 }
-
 .card {
   background: var(--color-dark-surface);
   backdrop-filter: blur(15px);
   -webkit-backdrop-filter: blur(15px);
   border: none;
   border-radius: 0;
-  padding: 48px 24px 32px 24px; /* Extra top padding for mobile status bar */
+  padding: 48px 24px 32px 24px; 
   width: 100%;
   max-width: 100vw;
-  /* Full width up to container padding on mobile */
   min-height: 100vh;
   box-shadow: none;
   transform: translateY(0);
@@ -118,67 +90,54 @@ body {
     transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
     box-shadow 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   animation: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-
-  /* Using Flexbox inside the card for proper mobile alignment */
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
 }
-
 @keyframes slideUp {
   from {
     opacity: 0;
     transform: translateY(30px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
-
 .card:hover {
   transform: translateY(-3px);
   box-shadow:
     0 25px 50px -10px rgba(0, 0, 0, 0.8),
     inset 0 1px 0 rgba(255, 255, 255, 0.2);
 }
-
 .top-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 32px;
 }
-
 .nav-link {
   color: var(--color-mocha);
   text-decoration: none;
   font-size: 14px;
-  /* Larger for readability on mobile */
   font-weight: 500;
   transition: color 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1.2px;
   padding: 8px 0;
-  /* Touch friendly target */
 }
-
 .nav-link:hover {
   color: var(--color-cream);
 }
-
 .nav-signup {
   color: var(--color-light);
 }
-
 .form-content {
   display: flex;
   flex-direction: column;
-  flex: 1; /* Takes up remaining height below nav */
-  justify-content: center; /* Centers the login form vertically */
+  flex: 1; 
+  justify-content: center; 
 }
-
 .label-top {
   font-size: 11px;
   letter-spacing: 0.2em;
@@ -186,7 +145,6 @@ body {
   margin-bottom: 12px;
   font-weight: 500;
 }
-
 .form-title {
   font-family: "Playfair Display", serif;
   font-size: 28px;
@@ -195,26 +153,21 @@ body {
   line-height: 1.2;
   margin-bottom: 32px;
 }
-
 form {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  /* Use grid/flex gap instead of margin */
 }
-
 .field-group {
   display: flex;
   flex-direction: column;
 }
-
 .label-row {
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 8px;
 }
-
 label {
   display: block;
   font-size: 11px;
@@ -223,7 +176,6 @@ label {
   text-transform: uppercase;
   font-weight: 500;
 }
-
 .forgot {
   font-size: 11px;
   color: var(--color-mocha);
@@ -231,13 +183,10 @@ label {
   transition: color 0.3s ease;
   letter-spacing: 0.05em;
   padding: 4px 0;
-  /* Touch friendly */
 }
-
 .forgot:hover {
   color: var(--color-cream);
 }
-
 .input-wrapper {
   position: relative;
   display: flex;
@@ -247,40 +196,34 @@ label {
     216,
     202,
     0.05
-  ); /* Soft background for native mobile feel */
+  ); 
   border-radius: 12px;
   padding: 0 16px;
   margin-top: 10px;
   border: 1px solid var(--color-border);
   transition: all 0.3s ease;
 }
-
 .input-wrapper:focus-within {
   border-color: var(--color-mocha);
   background: rgba(224, 216, 202, 0.08);
 }
-
 input {
   width: 100%;
   padding: 16px 0;
-  /* Increased for touch-friendliness */
   background: transparent;
   border: none;
   color: var(--color-cream);
   font-family: "Poppins", sans-serif;
   font-size: 16px;
-  /* 16px prevents iOS zoom on focus */
   font-weight: 300;
   outline: none;
   transition: all 0.3s ease;
 }
-
 input::placeholder {
   color: rgba(224, 216, 202, 0.4);
 }
-
 .input-line {
-  display: none; /* Hidden on mobile in favor of the wrapped border box */
+  display: none; 
   position: absolute;
   bottom: 0;
   left: 0;
@@ -288,7 +231,6 @@ input::placeholder {
   height: 1px;
   background: var(--color-border);
 }
-
 .input-line::after {
   content: "";
   position: absolute;
@@ -299,23 +241,20 @@ input::placeholder {
   background: var(--color-mocha);
   transition: width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 input:focus + .input-line::after {
   width: 100%;
 }
-
 .login-btn {
   width: 100%;
   min-height: 56px;
-  /* Taller, more elegant height */
   padding: 0 20px;
-  margin-top: 24px; /* More space from password field */
+  margin-top: 24px; 
   background: var(--color-light);
   color: var(--color-dark);
   border: none;
-  border-radius: 16px; /* Softer, pill-like corners */
+  border-radius: 16px; 
   font-family: "Poppins", sans-serif;
-  font-size: 15px; /* Larger text */
+  font-size: 15px; 
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -329,7 +268,6 @@ input:focus + .input-line::after {
   position: relative;
   box-shadow: 0 8px 16px -8px rgba(248, 245, 240, 0.2);
 }
-
 .login-btn::before {
   content: "";
   position: absolute;
@@ -345,27 +283,22 @@ input:focus + .input-line::after {
   );
   transition: left 0.6s ease;
 }
-
 .login-btn:hover {
   background: #ffffff;
   transform: translateY(-2px);
   box-shadow: 0 12px 20px -8px rgba(248, 245, 240, 0.3);
 }
-
 .login-btn:hover::before {
   left: 100%;
 }
-
 .arrow-icon {
   width: 18px;
   height: 18px;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .login-btn:hover .arrow-icon {
   transform: translateX(6px);
 }
-
 .signup-text {
   text-align: center;
   font-size: 13px;
@@ -373,7 +306,6 @@ input:focus + .input-line::after {
   margin-top: 32px;
   letter-spacing: 0.05em;
 }
-
 .signup-text a {
   color: var(--color-cream);
   text-decoration: none;
@@ -381,9 +313,7 @@ input:focus + .input-line::after {
   margin-left: 6px;
   position: relative;
   padding: 6px 0;
-  /* Touch friendly padding */
 }
-
 .signup-text a::after {
   content: "";
   position: absolute;
@@ -396,17 +326,10 @@ input:focus + .input-line::after {
   transform-origin: right;
   transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-
 .signup-text a:hover::after {
   transform: scaleX(1);
   transform-origin: left;
 }
-
-/* =========================================
-   MEDIA QUERIES (Mobile First)
-   ========================================= */
-
-/* Tablet (min-width: 768px) */
 @media (min-width: 768px) {
   .blob-1 {
     width: 350px;
@@ -415,7 +338,6 @@ input:focus + .input-line::after {
     left: -80px;
     filter: blur(80px);
   }
-
   .blob-2 {
     width: 300px;
     height: 300px;
@@ -423,11 +345,9 @@ input:focus + .input-line::after {
     right: -40px;
     filter: blur(80px);
   }
-
   .login-container {
     padding: 24px;
   }
-
   .card {
     padding: 40px 36px;
     max-width: 400px;
@@ -439,17 +359,13 @@ input:focus + .input-line::after {
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
     justify-content: flex-start;
   }
-
   .form-title {
     font-size: 34px;
     margin-bottom: 36px;
   }
-
   form {
     gap: 24px;
   }
-
-  /* Restore input styling for tablet and desktop */
   .input-wrapper {
     background: transparent;
     border-radius: 0;
@@ -457,20 +373,16 @@ input:focus + .input-line::after {
     margin-top: 0;
     border: none;
   }
-
   .input-wrapper:focus-within {
     border-color: transparent;
     background: transparent;
   }
-
   .input-line {
     display: block;
   }
-
   input {
     padding: 12px 0;
   }
-
   .login-btn {
     margin-top: 12px;
     padding: 16px;
@@ -478,14 +390,10 @@ input:focus + .input-line::after {
     border-radius: 12px;
   }
 }
-
-/* Desktop (min-width: 1024px) - Preserving Original Desktop Layout */
 @media (min-width: 1024px) {
   body {
     overflow: hidden;
-    /* Restore hidden overflow on large screens */
   }
-
   .blob-1 {
     width: 400px;
     height: 400px;
@@ -493,7 +401,6 @@ input:focus + .input-line::after {
     left: -100px;
     filter: blur(90px);
   }
-
   .blob-2 {
     width: 350px;
     height: 350px;
@@ -501,11 +408,9 @@ input:focus + .input-line::after {
     right: -50px;
     filter: blur(90px);
   }
-
   .login-container {
     padding: 20px;
   }
-
   .card {
     padding: 48px;
     max-width: 440px;
@@ -516,55 +421,45 @@ input:focus + .input-line::after {
       0 30px 60px -15px rgba(0, 0, 0, 0.8),
       inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
-
   .card:hover {
     transform: translateY(-5px);
     box-shadow:
       0 40px 80px -15px rgba(0, 0, 0, 0.9),
       inset 0 1px 0 rgba(255, 255, 255, 0.2);
   }
-
   .top-nav {
     margin-bottom: 40px;
   }
-
   .nav-link {
     font-size: 13px;
     letter-spacing: 1.5px;
     padding: 0;
   }
-
   .label-top {
     font-size: 12px;
     letter-spacing: 0.3em;
     margin-bottom: 16px;
   }
-
   .form-title {
     font-size: clamp(32px, 5vw, 42px);
     margin-bottom: 40px;
   }
-
   form {
     gap: 28px;
   }
-
   label {
     font-size: 10px;
     letter-spacing: 0.2em;
   }
-
   .forgot {
     font-size: 10px;
     letter-spacing: 0.1em;
     padding: 0;
   }
-
   input {
     padding: 12px 0;
     font-size: 15px;
   }
-
   .login-btn {
     margin-top: 12px;
     padding: 16px;
@@ -574,26 +469,21 @@ input:focus + .input-line::after {
     letter-spacing: 0.2em;
     box-shadow: 0 10px 20px -10px rgba(248, 245, 240, 0.3);
   }
-
   .login-btn:hover {
     transform: translateY(-3px);
     box-shadow: 0 15px 25px -10px rgba(248, 245, 240, 0.4);
   }
-
   .arrow-icon {
     width: 16px;
     height: 16px;
   }
-
   .signup-text {
     font-size: 12px;
   }
-
   .signup-text a {
     padding: 0;
     padding-bottom: 2px;
   }
-
   .signup-text a::after {
     bottom: 0;
   }

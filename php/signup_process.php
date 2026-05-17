@@ -1,17 +1,13 @@
 <?php
 session_start();
 require_once 'db_connect.php';
-
 if (isset($_POST['submit'])) {
     $name = $conn->real_escape_string($_POST['name']);
     $email = $conn->real_escape_string($_POST['email']);
     $password = $_POST['password'];
-    
     $hashed_password = password_hash($password, PASSWORD_DEFAULT);
-
     $check_email = "SELECT * FROM users WHERE email = '$email'";
     $result = $conn->query($check_email);
-
     if ($result->num_rows > 0) {
         echo "<script>alert('Email already registered!'); window.location.href='../html/index-signup.html';</script>";
     } else {
