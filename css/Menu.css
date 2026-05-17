@@ -2536,6 +2536,12 @@ body {
 /* ========================================
    MOBILE RESPONSIVE FIXES
    ======================================== */
+@media (max-width: 992px) {
+  .carousel-page {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 @media (max-width: 768px) {
   /* Mobile Navbar */
   .header-container {
@@ -2599,6 +2605,13 @@ body {
     flex-direction: column !important;
     align-items: flex-start !important;
     gap: 10px !important;
+  }
+  
+  .card-image-wrapper {
+    height: 160px;
+  }
+  .card-image-wrapper img {
+    height: 160px;
   }
 
   .add-to-cart-wrapper {
@@ -2708,6 +2721,11 @@ body {
 
   .menu-content {
     padding: 10px 3% 30px;
+  }
+
+  .carousel-page {
+    grid-template-columns: 1fr;
+    gap: 15px;
   }
 
   .card-footer {

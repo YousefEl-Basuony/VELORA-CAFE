@@ -181,17 +181,17 @@ body {
   display: none;
   position: absolute;
   top: 100%;
-  margin-top: 25px;
+  margin-top: 10px;
   left: 50%;
   transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(15px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 10px 15px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 5px 10px;
   width: max-content;
-  min-width: 140px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  min-width: 130px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   list-style: none;
   animation: dropdownFadeIn 0.3s ease forwards;
@@ -200,16 +200,16 @@ body {
 .dropdown-menu::before {
   content: "";
   position: absolute;
-  top: -25px;
+  top: -10px;
   left: 0;
   width: 100%;
-  height: 25px;
+  height: 10px;
 }
 
 @keyframes dropdownFadeIn {
   0% {
     opacity: 0;
-    transform: translate(-50%, -15px);
+    transform: translate(-50%, -10px);
   }
   100% {
     opacity: 1;
@@ -223,7 +223,7 @@ body {
 }
 
 .dropdown-menu li {
-  padding: 10px 15px;
+  padding: 8px 15px;
   text-align: center;
 }
 
