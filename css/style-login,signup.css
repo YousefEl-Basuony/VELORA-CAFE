@@ -2,7 +2,7 @@
   --color-dark: #1a0f08;
   --color-dark-surface: rgba(26, 15, 8, 0.65);
   --color-brown: #3d0c02;
-  --color-mocha: #a0825c;
+  --color-mocha: #d4af37;
   --color-cream: #e0d8ca;
   --color-light: #f8f5f0;
   --color-border: rgba(224, 216, 202, 0.15);
@@ -36,10 +36,11 @@ body {
 .blob {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.4;
+  filter: blur(80px);
+  opacity: 0.15;
   z-index: 0;
   animation: float 12s infinite alternate ease-in-out;
+  pointer-events: none;
 }
 .blob-1 {
   width: 60vw;
@@ -178,7 +179,7 @@ label {
 }
 .forgot {
   font-size: 11px;
-  color: var(--color-mocha);
+  color: rgba(224, 216, 202, 0.7);
   text-decoration: none;
   transition: color 0.3s ease;
   letter-spacing: 0.05em;
@@ -249,7 +250,7 @@ input:focus + .input-line::after {
   min-height: 56px;
   padding: 0 20px;
   margin-top: 24px; 
-  background: var(--color-light);
+  background: var(--color-mocha);
   color: var(--color-dark);
   border: none;
   border-radius: 16px; 
@@ -266,7 +267,7 @@ input:focus + .input-line::after {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
   position: relative;
-  box-shadow: 0 8px 16px -8px rgba(248, 245, 240, 0.2);
+  box-shadow: 0 8px 16px -8px rgba(212, 175, 55, 0.3);
 }
 .login-btn::before {
   content: "";
@@ -284,9 +285,9 @@ input:focus + .input-line::after {
   transition: left 0.6s ease;
 }
 .login-btn:hover {
-  background: #ffffff;
+  background: #f3c63a;
   transform: translateY(-2px);
-  box-shadow: 0 12px 20px -8px rgba(248, 245, 240, 0.3);
+  box-shadow: 0 12px 20px -8px rgba(212, 175, 55, 0.4);
 }
 .login-btn:hover::before {
   left: 100%;
@@ -467,11 +468,11 @@ input:focus + .input-line::after {
     border-radius: 12px;
     font-size: 13px;
     letter-spacing: 0.2em;
-    box-shadow: 0 10px 20px -10px rgba(248, 245, 240, 0.3);
+    box-shadow: 0 10px 20px -10px rgba(212, 175, 55, 0.4);
   }
   .login-btn:hover {
     transform: translateY(-3px);
-    box-shadow: 0 15px 25px -10px rgba(248, 245, 240, 0.4);
+    box-shadow: 0 15px 25px -10px rgba(212, 175, 55, 0.5);
   }
   .arrow-icon {
     width: 16px;
