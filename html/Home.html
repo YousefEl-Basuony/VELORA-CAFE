@@ -39,6 +39,10 @@
             </li>
             <li><a href="Home.html#about">ABOUT</a></li>
             <li><a href="Order.html">ORDER</a></li>
+            <li class="mobile-only-auth" id="mobileAuthContainer">
+              <a href="index-login.html" class="mobile-auth-btn">LOG IN</a>
+              <a href="index-signup.html" class="mobile-auth-btn signup">SIGN UP</a>
+            </li>
           </ul>
         </div>
         <div class="right">
@@ -247,11 +251,13 @@
         }
 
         if (data.logged_in) {
+          // 1. Update desktop header
           const rightDiv = document.querySelector('.right');
           const signupBtn = rightDiv.querySelector('.signup-btn');
           const loginBtn = rightDiv.querySelector('.login-btn');
           if (signupBtn) signupBtn.style.display = 'none';
           if (loginBtn) loginBtn.style.display = 'none';
+          
           const profileLink = document.createElement('a');
           profileLink.href = 'Profile.html';
           profileLink.className = 'login-btn';
@@ -259,11 +265,22 @@
           profileLink.style.color = '#121212';
           profileLink.style.fontWeight = 'bold';
           profileLink.innerHTML = `<i class="fa-solid fa-user"></i> ${data.user.name.split(' ')[0]}`;
+          
           const mobileDropdown = rightDiv.querySelector('.mobile-dropdown');
           if (mobileDropdown) {
             rightDiv.insertBefore(profileLink, mobileDropdown);
           } else {
             rightDiv.appendChild(profileLink);
+          }
+
+          // 2. Update mobile nav drawer
+          const mobileAuthContainer = document.getElementById('mobileAuthContainer');
+          if (mobileAuthContainer) {
+            mobileAuthContainer.innerHTML = `
+              <a href="Profile.html" class="mobile-auth-btn" style="background: #d4af37; color: #121212; font-weight: bold; width: 100%; justify-content: center;">
+                <i class="fa-solid fa-user"></i> MY PROFILE (${data.user.name.split(' ')[0]})
+              </a>
+            `;
           }
         }
       });
