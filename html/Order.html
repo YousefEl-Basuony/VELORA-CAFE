@@ -315,19 +315,31 @@
           showNotification("Your cart is empty!");
           return;
         }
+        let data = { logged_in: false };
         try {
           const response = await fetch("../php/check_login.php");
-          const data = await response.json();
-          if (!data.logged_in) {
-            alert("يجب عليك تسجيل الدخول أولاً لتأكيد الطلب!");
-            window.location.href = "index-login.html";
-            return;
+          if (response.ok) {
+            data = await response.json();
+          } else {
+            throw new Error("PHP offline");
           }
         } catch (e) {
-          console.error("Login check failed", e);
-          alert("حدث خطأ أثناء التحقق من تسجيل الدخول.");
+          console.log("PHP server offline, checking LocalStorage mock user session.");
+          const activeUser = localStorage.getItem('velora_active_user');
+          if (activeUser) {
+            data = {
+              logged_in: true,
+              user: JSON.parse(activeUser)
+            };
+          }
+        }
+
+        if (!data.logged_in) {
+          alert("يجب عليك تسجيل الدخول أولاً لتأكيد الطلب!");
+          window.location.href = "index-login.html";
           return;
         }
+
         showNotification("🎉 Order placed successfully! Thank you.");
         cart = [];
         saveCart();

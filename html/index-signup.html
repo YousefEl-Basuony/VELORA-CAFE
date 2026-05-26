@@ -88,5 +88,55 @@
         </div>
       </div>
     </div>
+    <script>
+      document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        
+        let phpWorking = false;
+        try {
+          const checkRes = await fetch('../php/db_connect.php');
+          if (checkRes.ok) {
+            phpWorking = true;
+          }
+        } catch (err) {
+          phpWorking = false;
+        }
+
+        if (phpWorking) {
+          // Create temp submit input so isset($_POST['submit']) inside PHP works
+          const submitInput = document.createElement('input');
+          submitInput.type = 'hidden';
+          submitInput.name = 'submit';
+          submitInput.value = '1';
+          form.appendChild(submitInput);
+          form.submit();
+        } else {
+          console.log("Static mode: Using LocalStorage for registration");
+          const name = document.getElementById('name').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          
+          let users = JSON.parse(localStorage.getItem('velora_users') || '[]');
+          if (users.some(u => u.email === email)) {
+            alert('Email already registered!');
+            return;
+          }
+          
+          const newUser = {
+            id: users.length + 1,
+            name: name,
+            email: email,
+            password: password,
+            created_at: new Date().toISOString()
+          };
+          users.push(newUser);
+          localStorage.setItem('velora_users', JSON.stringify(users));
+          
+          alert('Account created successfully (Static Mode)! Please login.');
+          window.location.href = 'index-login.html';
+        }
+      });
+    </script>
   </body>
 </html>

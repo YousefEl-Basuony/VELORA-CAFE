@@ -227,31 +227,44 @@
     <script src="../js/script.js"></script>
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
+        let data = { logged_in: false };
         try {
           const response = await fetch('../php/get_profile.php');
-          const data = await response.json();
-          if (data.logged_in) {
-            const rightDiv = document.querySelector('.right');
-            const signupBtn = rightDiv.querySelector('.signup-btn');
-            const loginBtn = rightDiv.querySelector('.login-btn');
-            if (signupBtn) signupBtn.style.display = 'none';
-            if (loginBtn) loginBtn.style.display = 'none';
-            const profileLink = document.createElement('a');
-            profileLink.href = 'Profile.html';
-            profileLink.className = 'login-btn';
-            profileLink.style.background = '#d4af37';
-            profileLink.style.color = '#121212';
-            profileLink.style.fontWeight = 'bold';
-            profileLink.innerHTML = `<i class="fa-solid fa-user"></i> ${data.user.name.split(' ')[0]}`;
-            const mobileDropdown = rightDiv.querySelector('.mobile-dropdown');
-            if (mobileDropdown) {
-              rightDiv.insertBefore(profileLink, mobileDropdown);
-            } else {
-              rightDiv.appendChild(profileLink);
-            }
+          if (response.ok) {
+            data = await response.json();
+          } else {
+            throw new Error("PHP offline");
           }
         } catch (e) {
-          console.error("Profile check failed", e);
+          console.log("PHP server offline, falling back to LocalStorage mock session.");
+          const activeUser = localStorage.getItem('velora_active_user');
+          if (activeUser) {
+            data = {
+              logged_in: true,
+              user: JSON.parse(activeUser)
+            };
+          }
+        }
+
+        if (data.logged_in) {
+          const rightDiv = document.querySelector('.right');
+          const signupBtn = rightDiv.querySelector('.signup-btn');
+          const loginBtn = rightDiv.querySelector('.login-btn');
+          if (signupBtn) signupBtn.style.display = 'none';
+          if (loginBtn) loginBtn.style.display = 'none';
+          const profileLink = document.createElement('a');
+          profileLink.href = 'Profile.html';
+          profileLink.className = 'login-btn';
+          profileLink.style.background = '#d4af37';
+          profileLink.style.color = '#121212';
+          profileLink.style.fontWeight = 'bold';
+          profileLink.innerHTML = `<i class="fa-solid fa-user"></i> ${data.user.name.split(' ')[0]}`;
+          const mobileDropdown = rightDiv.querySelector('.mobile-dropdown');
+          if (mobileDropdown) {
+            rightDiv.insertBefore(profileLink, mobileDropdown);
+          } else {
+            rightDiv.appendChild(profileLink);
+          }
         }
       });
     </script>

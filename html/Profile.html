@@ -111,29 +111,57 @@
       </div>
       <div>
         <a href="Home.html" class="home-btn">Back to Home</a>
-        <a href="../php/logout.php" class="logout-btn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
+        <a href="#" class="logout-btn" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Log Out</a>
       </div>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", async () => {
+        let data = { logged_in: false };
         try {
           const response = await fetch('../php/get_profile.php');
-          const data = await response.json();
-          if (data.logged_in) {
-            document.getElementById('profileCard').style.display = 'block';
-            document.getElementById('pName').innerText = data.user.name;
-            document.getElementById('pEmail').innerText = data.user.email;
-            document.getElementById('pId').innerText = "#00" + data.user.id;
-            const date = new Date(data.user.created_at);
-            document.getElementById('pDate').innerText = date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          if (response.ok) {
+            data = await response.json();
           } else {
-            alert("You are not logged in!");
-            window.location.href = 'index-login.html';
+            throw new Error("PHP offline");
           }
         } catch (e) {
-          console.error("Failed to load profile", e);
-          alert("Error loading profile");
+          console.log("PHP server offline, falling back to LocalStorage mock profile session.");
+          const activeUser = localStorage.getItem('velora_active_user');
+          if (activeUser) {
+            data = {
+              logged_in: true,
+              user: JSON.parse(activeUser)
+            };
+          }
         }
+
+        if (data.logged_in) {
+          document.getElementById('profileCard').style.display = 'block';
+          document.getElementById('pName').innerText = data.user.name;
+          document.getElementById('pEmail').innerText = data.user.email;
+          document.getElementById('pId').innerText = "#00" + (data.user.id || "1");
+          
+          const signupDate = data.user.created_at ? new Date(data.user.created_at) : new Date();
+          document.getElementById('pDate').innerText = signupDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+        } else {
+          alert("You are not logged in!");
+          window.location.href = 'index-login.html';
+        }
+
+        // Handle Logout
+        document.getElementById('logoutBtn').addEventListener('click', async (e) => {
+          e.preventDefault();
+          localStorage.removeItem('velora_active_user');
+          
+          try {
+            await fetch('../php/logout.php');
+          } catch (err) {
+            // Ignore error when running statically
+          }
+          
+          alert("Logged out successfully!");
+          window.location.href = 'Home.html';
+        });
       });
     </script>
   </body>

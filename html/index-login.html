@@ -76,5 +76,52 @@
         </div>
       </div>
     </div>
+    <script>
+      document.querySelector('form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const form = e.target;
+        
+        let phpWorking = false;
+        try {
+          const checkRes = await fetch('../php/db_connect.php');
+          if (checkRes.ok) {
+            phpWorking = true;
+          }
+        } catch (err) {
+          phpWorking = false;
+        }
+
+        if (phpWorking) {
+          // Create temp submit input so isset($_POST['submit']) inside PHP works
+          const submitInput = document.createElement('input');
+          submitInput.type = 'hidden';
+          submitInput.name = 'submit';
+          submitInput.value = '1';
+          form.appendChild(submitInput);
+          form.submit();
+        } else {
+          console.log("Static mode: Using LocalStorage for login");
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          
+          const users = JSON.parse(localStorage.getItem('velora_users') || '[]');
+          const user = users.find(u => u.email === email);
+          
+          if (!user) {
+            alert('Email not found!');
+            return;
+          }
+          
+          if (user.password !== password) {
+            alert('Incorrect Password!');
+            return;
+          }
+          
+          // Log in the user
+          localStorage.setItem('velora_active_user', JSON.stringify(user));
+          window.location.href = 'Home.html';
+        }
+      });
+    </script>
   </body>
 </html>
